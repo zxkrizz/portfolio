@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Krystian Niwa — Platform & DevOps Engineer</title>
+  <meta name="description" content="Krystian Niwa is a Platform & DevOps Engineer building and running cloud platforms on Azure: infrastructure as code, CI/CD and observability.">
+  <meta property="og:title" content="Krystian Niwa — Platform & DevOps Engineer">
+  <meta property="og:description" content="I build the platforms other engineers ship on. Azure, Terraform, GitHub Actions, observability.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0b0b0b" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230d0d0d'/%3E%3Ccircle cx='16' cy='16' r='5' fill='%23f2551d'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-in">
+      <a class="logo" href="#top">Krystian Niwa</a>
+      <nav class="links" aria-label="Sections">
+        <a href="#approach">Approach</a>
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+      </nav>
+      <a class="pill pill-dark" href="#contact">Get in touch</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap">
+      <p class="eyebrow">Platform &amp; DevOps Engineer</p>
+      <h1>I build the platforms other engineers ship on.</h1>
+      <div class="hero-foot">
+        <p class="lead">I design and run cloud platforms on Azure — infrastructure as code, delivery pipelines and observability — so teams can deploy often without putting production at risk.</p>
+        <div class="actions">
+          <a class="pill pill-dark" href="#contact">Get in touch</a>
+          <a class="pill" href="assets/cv.pdf" target="_blank" rel="noopener">Download CV</a>
+        </div>
+      </div>
+    </section>
+
+    <figure class="wrap media">
+      <div class="card card-hero">
+        <canvas id="hero-canvas" aria-label="Live simulation of a delivery platform: commits flow through CI, get deployed to a cluster and are monitored."></canvas>
+        <div class="chip chip-tl"><span class="live" data-health="ok"></span>Live · <span id="hero-stage">Runtime</span></div>
+        <div class="chip chip-br"><span data-stat="ready">9/9 healthy</span><span class="sep"></span><span data-stat="tag">v1.4.13</span></div>
+      </div>
+      <figcaption>A live simulation of the delivery path I build — from commit to production to the pager. It keeps running while you read.</figcaption>
+    </figure>
+
+    <section class="wrap statement">
+      <p>I came to the cloud through infrastructure: servers, networks, hypervisors and backups. <span>That is why the platforms I build are deliberately boring — predictable, observable, and easy to use the right way.</span></p>
+    </section>
+
+    <section id="approach" class="wrap story">
+      <div class="card story-card">
+        <canvas id="story-canvas" aria-hidden="true"></canvas>
+        <div class="chip chip-tl"><span class="live" data-health="ok"></span><span data-stat="ready">9/9 healthy</span><span class="sep"></span><span data-stat="rps">0 req/s</span></div>
+        <p class="event" data-event aria-hidden="true"></p>
+      </div>
+
+      <div class="steps">
+        <p class="eyebrow">How I work</p>
+        <article class="step" data-zones="git,ci">
+          <p class="num">01</p>
+          <h2>Every change goes through a pipeline.</h2>
+          <p>Infrastructure is defined in Terraform and shipped with GitHub Actions — planned, reviewed and applied the same way every time. No portal clicks that nobody can reproduce.</p>
+        </article>
+        <article class="step" data-zones="registry">
+          <p class="num">02</p>
+          <h2>Golden paths, not gatekeeping.</h2>
+          <p>I package the approved way of doing things into reusable modules and workflows, so teams get a secure, tagged, policy-compliant Azure environment by default rather than by review.</p>
+        </article>
+        <article class="step" data-zones="cluster">
+          <p class="num">03</p>
+          <h2>Built to heal itself.</h2>
+          <p>Redundancy, health checks and automation come first; heroics come last. Try it — click any pod in the cluster and watch the platform replace it.</p>
+        </article>
+        <article class="step" data-zones="observe">
+          <p class="num">04</p>
+          <h2>Measured, not assumed.</h2>
+          <p>I have rolled out Zabbix, Grafana, Datadog and Wazuh across on-prem and cloud estates, and I alert on what users actually feel instead of on every CPU spike.</p>
+        </article>
+        <article class="step" data-zones="pager">
+          <p class="num">05</p>
+          <h2>Accountable when it breaks.</h2>
+          <p>I own business-critical environments in production. When something fails I fix it calmly, find the root cause, and automate it out of existence.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="work" class="wrap section">
+      <div class="section-head">
+        <h2>Selected work</h2>
+        <p>Platform work from my day job, and the lab where I try things first.</p>
+      </div>
+      <div class="work-grid">
+        <article class="work">
+          <div class="work-media tint-a"><pre>module "landing_zone" {
+  source = "./golden-path"
+  env    = "prod"
+}</pre></div>
+          <h3>Azure golden paths</h3>
+          <p>Reusable Terraform modules and GitHub Actions workflows that give teams a compliant Azure environment in a single pull request.</p>
+          <p class="meta">Terraform · GitHub Actions · Azure Policy</p>
+        </article>
+        <article class="work">
+          <div class="work-media tint-b"><pre>$ pvecm status
+Quorum: 3  Nodes: 3
+backup verify: OK</pre></div>
+          <h3>Homelab</h3>
+          <p>A Proxmox cluster with verified backups and Grafana dashboards, where new tools get tested long before they go anywhere near production.</p>
+          <p class="meta">Proxmox · PBS · Debian · Grafana</p>
+        </article>
+        <article class="work">
+          <div class="work-media tint-c"><pre>PS&gt; Invoke-Onboarding
+  -User jdoe
+✓ done in 14s</pre></div>
+          <h3>Operations automation</h3>
+          <p>PowerShell and Python tooling that replaced repetitive admin work — identity lifecycle, reporting and health checks — now with LLM-assisted triage.</p>
+          <p class="meta">PowerShell · Python · Entra ID</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="wrap section">
+      <div class="section-head">
+        <h2>Experience</h2>
+      </div>
+      <div class="xp">
+        <article class="xp-row">
+          <p class="when">2025 — Now</p>
+          <div class="xp-role"><h3>Platform Operations Engineer</h3><p>Etteplan</p></div>
+          <p class="xp-desc">Building and running enterprise Azure platforms: standardised provisioning with Terraform, Ansible and GitHub Actions, and the reliability of business-critical cloud and hybrid infrastructure.</p>
+        </article>
+        <article class="xp-row">
+          <p class="when">2024 — 2025</p>
+          <div class="xp-role"><h3>IT Administrator</h3><p>Grupa Familijna</p></div>
+          <p class="xp-desc">Ran the whole stack end to end — VMware vSphere, SQL Server clusters, Windows and Linux servers, Fortigate SD-WAN — and introduced the monitoring and backup strategy.</p>
+        </article>
+        <article class="xp-row">
+          <p class="when">2023 — 2024</p>
+          <div class="xp-role"><h3>IT Specialist</h3><p>SI-Consulting / Akquinet</p></div>
+          <p class="xp-desc">Where it started: endpoints, Microsoft 365 and the documentation habit I still rely on.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap section">
+      <div class="section-head">
+        <h2>Toolbox</h2>
+      </div>
+      <p class="tools">Azure <i>/</i> Terraform <i>/</i> GitHub Actions <i>/</i> Ansible <i>/</i> PowerShell <i>/</i> Python <i>/</i> Linux <i>/</i> Windows Server <i>/</i> Entra ID <i>/</i> VMware <i>/</i> Proxmox <i>/</i> Grafana <i>/</i> Zabbix <i>/</i> Datadog <i>/</i> Wazuh <i>/</i> Veeam <i>/</i> Fortigate</p>
+      <p class="certs">Certified in AZ-800, AZ-040, AZ-900 and MS-900, plus Fortinet FCA, CCNA ITN and AWS Academy Cloud Foundations. English B2+, German A2.</p>
+    </section>
+
+    <section id="contact" class="wrap contact">
+      <h2>Let’s build something reliable.</h2>
+      <p class="lead">Open to Platform and DevOps engineering roles. I usually reply within a day.</p>
+      <a class="mail" href="mailto:krystianniwa.poczta@gmail.com?subject=Let%27s%20talk">krystianniwa.poczta@gmail.com</a>
+      <div class="actions">
+        <a class="pill pill-dark" href="https://www.linkedin.com/in/krystian-niwa/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="pill" href="assets/cv.pdf" target="_blank" rel="noopener">Download CV</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap foot">
+    <span>© 2026 Krystian Niwa</span>
+    <button type="button" class="linkish" data-open-term>Prefer a terminal? Press <kbd>`</kbd></button>
+  </footer>
+
+  <div id="term" class="term" aria-hidden="true" role="dialog" aria-label="Interactive shell">
+    <div class="term-bar"><i></i><i></i><i></i><span>visitor@krystian-niwa</span></div>
+    <div class="term-out"></div>
+    <label class="term-line"><span class="ps1">$</span><input class="term-input" tabindex="-1" autocomplete="off" spellcheck="false" aria-label="Shell command"></label>
+  </div>
+
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
