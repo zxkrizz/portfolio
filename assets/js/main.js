@@ -167,3 +167,23 @@ addEventListener('keydown', (e) => {
 });
 addEventListener('keydown', (e) => { if (e.key === 'Escape' && term.isOpen) term.close(); });
 
+// ---------- tmux-style status line ----------
+const status = $('.status');
+const wins = $$('.status [data-win]');
+const targets = wins.map((a) => document.getElementById(a.dataset.win)).filter(Boolean);
+function updateStatus() {
+  status.classList.toggle('show', scrollY > innerHeight * 0.6);
+  const mid = innerHeight * 0.4;
+  let current = targets[0];
+  for (const t of targets) if (t.getBoundingClientRect().top <= mid) current = t;
+  wins.forEach((a) => a.classList.toggle('on', a.dataset.win === current.id));
+}
+addEventListener('scroll', updateStatus, { passive: true });
+updateStatus();
+
+const clock = $('[data-clock]');
+const fmt = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Warsaw' });
+const tickClock = () => { clock.textContent = fmt.format(new Date()); };
+tickClock();
+setInterval(tickClock, 15000);
+
