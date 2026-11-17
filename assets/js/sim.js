@@ -381,8 +381,7 @@ export class Sim {
   zone(key) {
     const z = ZONES[key], on = this.active?.includes(key);
     this.box(z.x, z.y, z.w, z.h, { fill: C.zone, stroke: on ? C.faint : C.line, r: 24 });
-    this.text(z.n, z.x + 4, z.y - 30, 18, on ? C.accent : C.mute, { sans: true, weight: 500 });
-    this.text(z.label, z.x + 38, z.y - 30, 18, on ? C.ink : C.mute, { sans: true, weight: 500 });
+    this.text(z.label, z.x + 4, z.y - 30, 18, on ? C.accent : C.mute, { sans: true, weight: 500 });
   }
   dot(x, y, status, r = 9) {
     const ctx = this.ctx;

@@ -6,7 +6,6 @@ export const PROFILE = {
   handle: 'krystian-niwa',
   role: 'Platform & DevOps Engineer',
   location: 'Poland',
-  email: 'krystianniwa.poczta@gmail.com',
   linkedin: 'https://www.linkedin.com/in/krystian-niwa/',
 };
 

@@ -36,7 +36,7 @@ export class Terminal {
       'terraform apply': () => [{ cls: 'err', text: 'Error: apply requires approval from a hiring manager.' }, 'hint: run `contact`'],
       contact: () => this.contact(),
       linkedin: () => { window.open(PROFILE.linkedin, '_blank', 'noopener'); return ['opening linkedin…']; },
-      'sudo hire krystian': () => { location.href = `mailto:${PROFILE.email}?subject=${encodeURIComponent('Platform / DevOps role')}`; return [{ cls: 'ok', text: '[sudo] permission granted. opening mail client…' }]; },
+      'sudo hire krystian': () => { window.open(PROFILE.linkedin, '_blank', 'noopener'); return [{ cls: 'ok', text: '[sudo] permission granted. opening linkedin…' }]; },
       'ping krystian': () => ['PING krystian (open-to-work): 56 data bytes', '64 bytes from krystian: icmp_seq=0 ttl=64 time<24h', '--- 1 packets transmitted, 1 received, 0% packet loss ---'],
       clear: () => { this.out.textContent = ''; return []; },
       exit: () => { this.api.close(); return []; },
@@ -182,7 +182,6 @@ export class Terminal {
   }
   contact() {
     return [
-      { label: 'email     ', href: `mailto:${PROFILE.email}`, text: PROFILE.email },
       { label: 'linkedin  ', href: PROFILE.linkedin, text: 'linkedin.com/in/krystian-niwa' },
     ];
   }

@@ -5,9 +5,17 @@ import { Sim, ZONES, setPalette, clamp, lerp, ease } from './sim.js';
 import { Terminal } from './terminal.js';
 import { mountPipeline } from './pipeline.js';
 import { asciiPortrait } from './ascii.js';
+import { mountGrowth } from './growth.js';
+
+// Hero name: split into letters so CSS can stagger them in on load.
+const h1 = document.querySelector('h1');
+h1.setAttribute('aria-label', h1.textContent);
+h1.innerHTML = h1.textContent.split(' ').map((word, wi) =>
+  `<span class="word" aria-hidden="true">${[...word].map((ch, ci) => `<span class="ch" style="--i:${wi * 8 + ci}">${ch}</span>`).join('')}</span>`).join(' ');
 
 asciiPortrait(document.querySelector('.portrait img'), document.querySelector('.portrait .ascii'));
 mountPipeline(document.getElementById('gha'));
+mountGrowth(document.querySelector('[data-contrib]'), document.querySelector('[data-contrib-axis]'));
 
 // Logo strip: duplicate the list so the marquee loops seamlessly.
 const strip = document.querySelector('.strip-list');
@@ -166,24 +174,4 @@ addEventListener('keydown', (e) => {
   }
 });
 addEventListener('keydown', (e) => { if (e.key === 'Escape' && term.isOpen) term.close(); });
-
-// ---------- tmux-style status line ----------
-const status = $('.status');
-const wins = $$('.status [data-win]');
-const targets = wins.map((a) => document.getElementById(a.dataset.win)).filter(Boolean);
-function updateStatus() {
-  status.classList.toggle('show', scrollY > innerHeight * 0.6);
-  const mid = innerHeight * 0.4;
-  let current = targets[0];
-  for (const t of targets) if (t.getBoundingClientRect().top <= mid) current = t;
-  wins.forEach((a) => a.classList.toggle('on', a.dataset.win === current.id));
-}
-addEventListener('scroll', updateStatus, { passive: true });
-updateStatus();
-
-const clock = $('[data-clock]');
-const fmt = new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Warsaw' });
-const tickClock = () => { clock.textContent = fmt.format(new Date()); };
-tickClock();
-setInterval(tickClock, 15000);
 
