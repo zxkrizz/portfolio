@@ -1,6 +1,6 @@
 // Drop-down shell. Talks to the live simulation, so `kubectl get pods` shows real (simulated) state.
 
-import { PROFILE, REVISIONS, CERTS, LAYERS } from './data.js';
+import { PROFILE, CERTS, LAYERS } from './data.js';
 
 const PROMPT = 'visitor@krystian-niwa:~$';
 
@@ -116,7 +116,7 @@ export class Terminal {
       ['cat cv.yaml', 'the cv, as config'],
       ['kubectl get pods', 'live pods in the cluster'],
       ['kubectl delete pod --all', 'chaos engineering (go on)'],
-      ['kubectl rollout history', 'career, as deployments'],
+      ['kubectl rollout history', 'recent deployments'],
       ['kubectl get certs', 'certifications'],
       ['git log · gh run list', 'what the pipeline is doing'],
       ['terraform plan', 'what happens if you hire me'],
@@ -133,8 +133,6 @@ export class Terminal {
       `  name: ${PROFILE.handle}`,
       '  labels: { role: platform-devops-engineer, cloud: azure, location: poland }',
       'spec:',
-      '  experience:',
-      ...REVISIONS.map((r) => `    - { rev: ${r.rev}, role: "${r.role}", org: "${r.org}", when: "${r.when}" }`),
       '  stack: [azure, terraform, ansible, github-actions, powershell, python, vmware, proxmox]',
       '  observability: [zabbix, grafana, datadog, wazuh]',
       '  languages: { en: B2+, de: A2 }',
@@ -155,7 +153,7 @@ export class Terminal {
     return [`${'NAME'.padEnd(16)}${'READY'.padEnd(8)}${'UP-TO-DATE'.padEnd(12)}IMAGE`, `${'krystian-niwa'.padEnd(16)}${`${ready}/${s.desired}`.padEnd(8)}${String(s.pods.filter((p) => p.v === s.target).length).padEnd(12)}${s.tagName(s.target)}`];
   }
   history_() {
-    return ['deployment.apps/krystian-niwa', `${'REVISION'.padEnd(10)}CHANGE-CAUSE`, ...[...REVISIONS].reverse().map((r) => `${String(r.rev).padEnd(10)}${r.role} @ ${r.org} (${r.when})`), `${'4'.padEnd(10)}<pending> your team`];
+    return ['deployment.apps/krystian-niwa', `${'REVISION'.padEnd(10)}IMAGE`, ...[...this.sim.tags].reverse().map((t, i) => `${String(i + 1).padEnd(10)}krystian-niwa:${t.tag}`)];
   }
   chaos() {
     const victims = this.sim.killAll();

@@ -1,9 +1,17 @@
-// One simulation, two windows onto it:
-//  - hero card: an automatic camera tour across the platform
-//  - story card: sticky; the camera follows whichever step you're reading
+// Page wiring: the GitHub Actions run, the logo strip, and the live platform simulation
+// in a sticky card whose camera follows whichever "How I work" step you're reading.
 
 import { Sim, ZONES, setPalette, clamp, lerp, ease } from './sim.js';
 import { Terminal } from './terminal.js';
+import { mountPipeline } from './pipeline.js';
+
+mountPipeline(document.getElementById('gha'));
+
+// Logo strip: duplicate the list so the marquee loops seamlessly.
+const strip = document.querySelector('.strip-list');
+const copy = strip.cloneNode(true);
+copy.setAttribute('aria-hidden', 'true');
+strip.after(copy);
 
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -88,24 +96,6 @@ class View {
   }
 }
 
-// Hero: tour the platform on a timer.
-const TOUR = ['cluster', 'ci', 'observe', 'registry', 'pager', 'git'];
-const hero = new View($('#hero-canvas'));
-const heroStage = $('#hero-stage');
-let tourIdx = 0, tourAt = 0;
-function heroTarget() {
-  if (sim.t - tourAt > (TOUR[tourIdx] === 'cluster' ? 7 : 5)) {
-    tourIdx = (tourIdx + 1) % TOUR.length; tourAt = sim.t;
-  }
-  const key = TOUR[tourIdx];
-  heroStage.textContent = ZONES[key].label;
-  hero.active = [key];
-  const t = fit([key], hero.w, hero.h, 0.84, 18);
-  const p = clamp((sim.t - tourAt) / 1.6, 0, 1);
-  if (!reduced && sim.t > 1) t.z *= 1 - 0.35 * Math.sin(Math.PI * p); // pull back mid-flight
-  return t;
-}
-
 // Story: sticky card follows the step being read.
 const story = new View($('#story-canvas'));
 const steps = $$('.step');
@@ -147,7 +137,6 @@ function storyTarget() {
 // ---------- loop ----------
 function step(dt) {
   sim.update(dt);
-  if (hero.visible) { hero.step(heroTarget(), dt, 2.4); sim.renderView(hero); }
   if (story.visible) { story.step(storyTarget(), dt, 5); sim.renderView(story); }
 }
 sim.step = step; // lets devtools / headless checks advance time manually

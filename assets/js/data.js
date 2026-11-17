@@ -55,12 +55,6 @@ export const LAYERS = [
   { name: 'automation · powershell · python',      size: '64MB' },
 ];
 
-export const REVISIONS = [
-  { rev: 3, role: 'Platform Operations Engineer', org: 'Etteplan', when: '2025 → now' },
-  { rev: 2, role: 'IT Administrator', org: 'Grupa Familijna', when: '2024 → 2025' },
-  { rev: 1, role: 'IT Support Specialist', org: 'SI-Consulting / Akquinet', when: '2023 → 2024' },
-];
-
 export const CERTS = [
   'AZ-800 · Windows Server Hybrid Core Infrastructure',
   'AZ-040 · Automate Administration with PowerShell',
