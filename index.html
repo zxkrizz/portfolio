@@ -257,11 +257,14 @@
           <li>tests <small>+ CIS scan</small></li>
           <li>compute gallery</li>
         </ol>
-        <p class="os"><span>Windows Server 2019 · 2022 · 2025</span><span>Debian · Rocky Linux · RHEL · Ubuntu</span></p>
+        <dl class="os">
+          <div><dt>general purpose</dt><dd>Linux distributions and Windows Server editions</dd></div>
+          <div><dt>specialised</dt><dd>purpose-built production images, such as self-hosted GitHub Actions runners</dd></div>
+        </dl>
         <dl class="pcr">
           <div><dt>why</dt><dd>Every new VM should start secure and consistent, whatever the operating system, instead of being hardened and configured after it is already running.</dd></div>
-          <div><dt>built</dt><dd>One workflow per OS: Terraform provisions a build VM, the CIS baseline is applied, Ansible installs the required agents, the image is tested and scanned for CIS compliance, then versioned into Azure Compute Gallery.</dd></div>
-          <div><dt>result</dt><dd>Seven hardened images maintained as code. New machines come up compliant and fully configured on day one.</dd></div>
+          <div><dt>built</dt><dd>A workflow per image: Terraform provisions a build VM, the CIS baseline is applied, Ansible installs the required agents, the image is tested and scanned for CIS compliance, then versioned into Azure Compute Gallery.</dd></div>
+          <div><dt>result</dt><dd>A catalogue of hardened images maintained as code. New machines come up compliant and fully configured on day one.</dd></div>
         </dl>
       </article>
 
@@ -279,8 +282,8 @@
             <h3>fleet-patching</h3>
             <span class="tech"><img src="assets/logos/github.svg" alt="GitHub" class="mono"><img src="assets/logos/ansible.svg" alt="Ansible" class="mono"><img src="assets/logos/windows.svg" alt="Windows"></span>
           </div>
-          <p>A self-hosted GitHub runner hands the job to Ansible, which installs MSI packages or patches middleware such as 7-Zip on many hosts in parallel.</p>
-          <p class="result"><b>result</b> an estate-wide update is one workflow run, not host-by-host remote sessions</p>
+          <p>A self-hosted GitHub runner hands the job to Ansible, which installs packages and updates middleware across many hosts in parallel, on a schedule or on demand.</p>
+          <p class="result"><b>result</b> routine operations run automatically and middleware stays current across the estate</p>
         </article>
         <article class="project reveal">
           <div class="p-head">
@@ -332,7 +335,6 @@
             <li><img src="assets/logos/kubernetes.svg" alt="">Kubernetes</li>
             <li><img src="assets/logos/docker.svg" alt="">Docker</li>
             <li><img src="assets/logos/proxmox.svg" alt="">Proxmox</li>
-            <li class="noicon">VMware vSphere</li>
             <li><img src="assets/logos/linux.svg" alt="" class="mono">Linux</li>
           </ul>
         </div>
@@ -343,7 +345,7 @@
             <li><img src="assets/logos/zabbix.svg" alt="">Zabbix</li>
             <li><img src="assets/logos/datadog.svg" alt="">Datadog</li>
             <li><img src="assets/logos/fortinet.svg" alt="">Fortinet</li>
-            <li class="noicon">Veeam Backup &amp; Replication</li>
+            <li><img src="assets/logos/azure.svg" alt="">Azure Backup</li>
           </ul>
         </div>
       </div>
