@@ -71,45 +71,57 @@
       </div>
     </header>
 
-    <section class="strip" aria-label="Technologies I work with">
-      <div class="strip-track">
-        <ul class="strip-list">
-          <li><img src="assets/logos/microsoft.svg" alt="">Microsoft</li>
-          <li><img src="assets/logos/azure.svg" alt="">Azure</li>
-          <li><img src="assets/logos/terraform.svg" alt="">Terraform</li>
-          <li><img src="assets/logos/githubactions.svg" alt="">GitHub Actions</li>
-          <li><img src="assets/logos/docker.svg" alt="">Docker</li>
-          <li><img src="assets/logos/kubernetes.svg" alt="">Kubernetes</li>
-          <li><img src="assets/logos/grafana.svg" alt="">Grafana</li>
-          <li><img src="assets/logos/zabbix.svg" alt="">Zabbix</li>
-          <li><img src="assets/logos/ansible.svg" alt="" class="mono">Ansible</li>
-          <li><img src="assets/logos/powershell.svg" alt="">PowerShell</li>
-          <li><img src="assets/logos/python.svg" alt="">Python</li>
-          <li><img src="assets/logos/linux.svg" alt="" class="mono">Linux</li>
-          <li><img src="assets/logos/proxmox.svg" alt="">Proxmox</li>
-          <li><img src="assets/logos/datadog.svg" alt="">Datadog</li>
-        </ul>
+    <section class="wrap strip" aria-label="Technologies I work with">
+      <div class="strip-mask">
+        <div class="strip-track">
+          <ul class="strip-list">
+            <li><img src="assets/logos/microsoft.svg" alt="">Microsoft</li>
+            <li><img src="assets/logos/azure.svg" alt="">Azure</li>
+            <li><img src="assets/logos/terraform.svg" alt="">Terraform</li>
+            <li><img src="assets/logos/githubactions.svg" alt="">GitHub Actions</li>
+            <li><img src="assets/logos/docker.svg" alt="">Docker</li>
+            <li><img src="assets/logos/kubernetes.svg" alt="">Kubernetes</li>
+            <li><img src="assets/logos/grafana.svg" alt="">Grafana</li>
+            <li><img src="assets/logos/zabbix.svg" alt="">Zabbix</li>
+            <li><img src="assets/logos/ansible.svg" alt="">Ansible</li>
+            <li><img src="assets/logos/powershell.svg" alt="">PowerShell</li>
+            <li><img src="assets/logos/python.svg" alt="">Python</li>
+            <li><img src="assets/logos/linux.svg" alt="">Linux</li>
+            <li><img src="assets/logos/proxmox.svg" alt="">Proxmox</li>
+            <li><img src="assets/logos/datadog.svg" alt="">Datadog</li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <section id="growth" class="wrap section growth">
       <div class="growth-head reveal">
         <p class="label">## growth</p>
-        <h2>Three years ago I was closing helpdesk tickets. <span>Today I build the Terraform modules and pipelines other teams deploy with.</span></h2>
+        <h2>I help run a large, business-critical Azure environment. <span>Every role before this one handed me more scope than the last.</span></h2>
       </div>
       <div class="growth-body">
         <div class="growth-text reveal">
-          <p>I learn by running things. Before I automated a server, I patched it by hand. Before I wrote Terraform for a network, I configured firewalls and VPNs by hand. Every layer I work on today is one I have operated myself, which is why I pick up new tools quickly and know where they tend to break.</p>
-          <p>That pace has not slowed down. In under three years I went from endpoints to on-prem infrastructure to enterprise Azure, earned nine certifications along the way, and most recently got certified in operating GPU infrastructure for AI workloads. I am looking for a team where that curve can keep going up.</p>
+          <p>In every role so far, doing the job well has meant being given more of it: more systems, more responsibility and harder problems. I was trusted with production early, and each step came with a bigger scope rather than a fresh start. That is how I moved from support to on-prem infrastructure to enterprise cloud platforms so quickly.</p>
+          <p>It also means I learned every layer by running it. I patched servers before I automated them and configured firewalls and VPNs by hand before I described networks in Terraform, so I pick up new tools quickly and know where they tend to break.</p>
         </div>
-        <figure class="contrib reveal" aria-label="Illustration: how much of the stack I was running, week by week, since 2023">
+        <figure class="contrib reveal" aria-label="Illustration: how my responsibility grew, week by week">
           <div class="contrib-grid" data-contrib></div>
           <div class="contrib-axis" data-contrib-axis></div>
           <figcaption>
-            <span>Each square is a week since September 2023. The darker it gets, the more of the stack I was running.</span>
+            <span>Each square is a week. The darker it gets, the more I was responsible for.</span>
             <span class="legend" aria-hidden="true">less <i></i><i></i><i></i><i></i><i></i> more</span>
           </figcaption>
         </figure>
+      </div>
+
+      <div class="now reveal">
+        <p class="now-title">Right now <span>Etteplan, working on Fortum's Azure environment</span></p>
+        <dl class="now-list">
+          <div><dt>operations</dt><dd>Keeping business-critical cloud and hybrid infrastructure available: handling complex incidents, finding the root cause and making sure the same problem does not come back.</dd></div>
+          <div><dt>azure</dt><dd>Provisioning and maintaining enterprise Azure resources, access and governance so the environment stays consistent, secure and compliant as it grows.</dd></div>
+          <div><dt>golden paths</dt><dd>Standard Terraform and GitHub Actions workflows that let teams get infrastructure the approved way, without waiting on a ticket.</dd></div>
+          <div><dt>automation</dt><dd>Turning repetitive operational work into PowerShell, Python and Ansible, so the team spends its time on problems instead of chores.</dd></div>
+        </dl>
       </div>
     </section>
 
@@ -117,23 +129,47 @@
       <div class="section-head">
         <p class="label">## pipeline</p>
         <h2>What a deploy looks like</h2>
-        <p>A simulated run of the kind of GitHub Actions workflow I set up for infrastructure and application changes. Nobody logs into a portal to release anything.</p>
+        <p>Infrastructure and application changes ship through the same path: parallel checks, a Terraform plan that gets reviewed, staging, an approval gate and production. Click any job to see its steps.</p>
       </div>
       <div class="gha" id="gha">
         <div class="gha-head">
           <span class="gha-status" data-run-status></span>
           <div class="gha-title">
-            <strong>deploy-platform.yml</strong>
-            <span>run <b data-run-n>#128</b> · <img src="assets/logos/github.svg" alt="" class="mono"> main · <code data-run-sha>a1f9c2e</code> · on: push</span>
+            <strong data-run-title>feat(network): private endpoints for storage accounts</strong>
+            <span>platform-delivery.yml · run <b data-run-n>#214</b> · <img src="assets/logos/github.svg" alt="" class="mono"> main · <code data-run-sha>a1f9c2e</code> · on push</span>
           </div>
-          <span class="gha-time" data-run-time>0s</span>
+          <dl class="gha-meta">
+            <div><dt>Status</dt><dd data-run-state>In progress</dd></div>
+            <div><dt>Total duration</dt><dd data-run-time>0s</dd></div>
+          </dl>
         </div>
         <div class="gha-graph" data-graph>
           <svg class="gha-wires" aria-hidden="true"></svg>
         </div>
-        <div class="gha-log">
-          <p class="gha-log-head" data-log-head>checkout</p>
-          <ol data-log></ol>
+        <div class="gha-foot">
+          <div class="gha-log" aria-live="off">
+            <div class="gha-log-head"><strong data-log-head>Lint</strong><span data-log-meta>runs-on: ubuntu-latest</span></div>
+            <ol data-log></ol>
+            <p class="gha-hint" data-log-hint>following the run · click any job to inspect it</p>
+          </div>
+          <aside class="gha-side">
+            <p>Deployments</p>
+            <ul class="envs">
+              <li data-env="staging" data-state="pending">staging</li>
+              <li data-env="production" data-state="pending">production</li>
+            </ul>
+            <p>Artifacts</p>
+            <ul class="artifacts">
+              <li>tfplan-staging</li>
+              <li>tfplan-production</li>
+              <li>sbom.spdx.json</li>
+            </ul>
+            <p>Security</p>
+            <ul class="artifacts">
+              <li>OIDC to Azure, no stored secrets</li>
+              <li>production needs a reviewer</li>
+            </ul>
+          </aside>
         </div>
       </div>
     </section>
@@ -250,18 +286,13 @@ MS-900  Microsoft 365 Fundamentals
         Nebius AI CloudOps Engineer
 FCA     Fortinet Certified Associate in Cybersecurity
 CCNA    Introduction to Networks</pre>
-<pre><span class="c"># next</span>
-AZ-104  Azure Administrator Associate
-GH-300  GitHub Copilot
-AZ-401  Agentic DevOps Engineer Expert
-AZ-305  Azure Solutions Architect Expert</pre>
 </div>
     </section>
 
     <section id="contact" class="wrap contact">
       <p class="label">## contact</p>
       <h2 class="reveal">Let's talk.</h2>
-      <p class="lead reveal">I'm open to Platform and DevOps roles. The quickest way to reach me is a message on LinkedIn.</p>
+      <p class="lead reveal">If you would like to talk about platforms, Azure or anything on this page, send me a message on LinkedIn.</p>
       <a class="big-link reveal" href="https://www.linkedin.com/in/krystian-niwa/" target="_blank" rel="noopener">
         <span>linkedin.com/in/krystian-niwa</span><i aria-hidden="true">↗</i>
       </a>

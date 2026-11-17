@@ -32,16 +32,12 @@ export class Terminal {
       'kubectl get certs': () => ['NAME' + ' '.repeat(52) + 'STATUS', ...CERTS.map((c) => `${c.padEnd(56)}Passing`)],
       'git log': () => this.sim.commits.slice(0, 6).map((c, i) => `${c.hash}${i === 0 ? ' (HEAD -> main)' : ''} ${c.msg}`),
       'gh run list': () => this.sim.runs.map((r) => `✓  #${r.n}  ${r.msg.padEnd(36)} ${r.dur.toFixed(1)}s`),
-      'terraform plan': () => this.plan(),
-      'terraform apply': () => [{ cls: 'err', text: 'Error: apply requires approval from a hiring manager.' }, 'hint: run `contact`'],
       contact: () => this.contact(),
       linkedin: () => { window.open(PROFILE.linkedin, '_blank', 'noopener'); return ['opening linkedin…']; },
-      'sudo hire krystian': () => { window.open(PROFILE.linkedin, '_blank', 'noopener'); return [{ cls: 'ok', text: '[sudo] permission granted. opening linkedin…' }]; },
-      'ping krystian': () => ['PING krystian (open-to-work): 56 data bytes', '64 bytes from krystian: icmp_seq=0 ttl=64 time<24h', '--- 1 packets transmitted, 1 received, 0% packet loss ---'],
       clear: () => { this.out.textContent = ''; return []; },
       exit: () => { this.api.close(); return []; },
     };
-    this.aliases = { 'k get pods': 'kubectl get pods', 'k get po': 'kubectl get pods', 'kubectl get po': 'kubectl get pods', 'k delete pod --all': 'kubectl delete pod --all', 'kubectl get deployment': 'kubectl get deploy', 'cat profile': 'cat profile.yaml', 'sudo hire': 'sudo hire krystian', 'hire': 'sudo hire krystian', 'k rollout history': 'kubectl rollout history' };
+    this.aliases = { 'k get pods': 'kubectl get pods', 'k get po': 'kubectl get pods', 'kubectl get po': 'kubectl get pods', 'k delete pod --all': 'kubectl delete pod --all', 'kubectl get deployment': 'kubectl get deploy', 'cat profile': 'cat profile.yaml', 'k rollout history': 'kubectl rollout history' };
 
     this.input.addEventListener('keydown', (e) => this.onKey(e));
     root.addEventListener('click', (e) => { if (e.target.closest('a,button')) return; this.input.focus(); });
@@ -117,7 +113,6 @@ export class Terminal {
       ['kubectl rollout history', 'recent deployments'],
       ['kubectl get certs', 'certifications'],
       ['git log · gh run list', 'what the pipeline is doing'],
-      ['terraform plan', 'what happens if you hire me'],
       ['contact · linkedin', 'reach out'],
       ['clear · exit', ''],
     ];
@@ -163,22 +158,6 @@ export class Terminal {
     if (!p || !this.sim.kill(p, 'cli')) return [{ cls: 'err', text: `Error from server (NotFound): pods "${name}" not found` }];
     this.api.goto('runtime');
     return [`pod "${p.id}" deleted`];
-  }
-  plan() {
-    return [
-      'Terraform will perform the following actions:',
-      '',
-      { cls: 'ok', text: '  # team.platform_engineer will be created' },
-      { cls: 'ok', text: '  + resource "team" "platform_engineer" {' },
-      { cls: 'ok', text: '      + engineer      = "krystian-niwa"' },
-      { cls: 'ok', text: '      + company       = "your-company"' },
-      { cls: 'ok', text: '      + focus         = ["azure", "iac", "ci/cd", "platform"]' },
-      { cls: 'ok', text: '      + ramp_up_time  = (known after apply, but short)' },
-      { cls: 'ok', text: '    }' },
-      '',
-      'Plan: 1 to add, 0 to change, 0 to destroy.',
-      { cls: 'mute', text: 'run `contact` to approve.' },
-    ];
   }
   contact() {
     return [
