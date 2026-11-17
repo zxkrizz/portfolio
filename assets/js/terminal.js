@@ -29,7 +29,7 @@ export class Terminal {
       'kubectl rollout history deploy/krystian-niwa': () => this.history_(),
       'kubectl rollout history': () => this.history_(),
       'kubectl delete pod --all': () => this.chaos(),
-      'kubectl get certs': () => ['NAME' + ' '.repeat(52) + 'STATUS', ...CERTS.map((c) => `${c.padEnd(56)}Passing`)],
+      'kubectl get certs': () => ['ISSUED   NAME', ...CERTS],
       'git log': () => this.sim.commits.slice(0, 6).map((c, i) => `${c.hash}${i === 0 ? ' (HEAD -> main)' : ''} ${c.msg}`),
       'gh run list': () => this.sim.runs.map((r) => `✓  #${r.n}  ${r.msg.padEnd(36)} ${r.dur.toFixed(1)}s`),
       contact: () => this.contact(),

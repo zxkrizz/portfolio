@@ -54,13 +54,13 @@ export const LAYERS = [
 ];
 
 export const CERTS = [
-  'Nebius Certified AI CloudOps Engineer',
-  'AZ-800 · Windows Server Hybrid Core Infrastructure',
-  'AZ-040 · Automate Administration with PowerShell',
-  'AZ-900 · Azure Fundamentals',
-  'MS-900 · Microsoft 365 Fundamentals',
-  'Fortinet Certified Associate in Cybersecurity',
-  'CCNA · Introduction to Networks',
-  'Cisco Cybersecurity Essentials',
-  'AWS Academy Cloud Foundations',
+  '2026-10  Nebius AI CloudOps Engineer',
+  '2025-09  AZ-800T00 Windows Server Hybrid Core (course)',
+  '2025-09  Fortinet Certified Associate in Cybersecurity',
+  '2025-05  AZ-040T00 Automating Administration with PowerShell (course)',
+  '2024-07  Microsoft Azure Fundamentals (AZ-900)',
+  '2024-05  Microsoft 365 Fundamentals (MS-900)',
+  '2023-06  Cisco Cybersecurity Essentials',
+  '2022-10  Cisco CCNA: Introduction to Networks',
+  '2022-06  AWS Academy Cloud Foundations',
 ];

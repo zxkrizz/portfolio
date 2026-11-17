@@ -6,7 +6,7 @@ const START = new Date(Date.UTC(2023, 8, 4)); // Monday, 4 Sep 2023
 const PHASES = [
   { from: new Date(Date.UTC(2023, 8, 1)), label: 'support & endpoints', base: 0.18 },
   { from: new Date(Date.UTC(2024, 5, 1)), label: 'servers, networks, VMware', base: 0.42 },
-  { from: new Date(Date.UTC(2025, 11, 1)), label: 'Azure platforms, Terraform, GitHub Actions', base: 0.66 },
+  { from: new Date(Date.UTC(2025, 11, 1)), label: 'enterprise Azure, platform engineering, CI/CD', base: 0.66, current: true },
   { from: new Date(Date.UTC(2026, 5, 1)), label: null, base: 0.8 }, // AI infrastructure, folded into the label above
 ];
 
@@ -53,7 +53,8 @@ export function mountGrowth(grid, axis) {
     const w = Math.max(0, Math.round((p.from - START) / (7 * 864e5)));
     const el = document.createElement('span');
     el.style.setProperty('--x', (w / weeks) * 100 + '%');
-    el.innerHTML = `<b>${fmt.format(p.from)}</b>${p.label}`;
+    el.innerHTML = `<b>${fmt.format(p.from)}${p.current ? ' – now' : ''}</b>${p.label}`;
+    if (p.current) el.classList.add('current');
     axis.append(el);
   }
 

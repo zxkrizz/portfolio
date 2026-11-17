@@ -274,6 +274,8 @@ h1 {
 .contrib-axis { position: relative; height: 54px; margin-top: 12px; font: 400 12px/1.4 var(--mono); color: var(--muted); }
 .contrib-axis span { position: absolute; left: var(--x); top: 0; padding-left: 8px; border-left: 1px solid var(--line); max-width: 30%; }
 .contrib-axis b { display: block; color: var(--fg); font-weight: 500; }
+.contrib-axis .current { border-left-color: var(--accent); }
+.contrib-axis .current b { color: var(--accent); }
 .contrib figcaption { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 18px; font: 400 12px var(--mono); color: var(--muted); }
 .legend { display: inline-flex; align-items: center; gap: 3px; }
 .legend i { width: 10px; height: 10px; border-radius: 2px; background: var(--lv0); }
@@ -307,7 +309,8 @@ h1 {
   display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 0 clamp(32px, 5vw, 80px);
   padding-top: clamp(48px, 8vh, 96px);
 }
-.story-card { grid-column: 2; grid-row: 1; align-self: start; position: sticky; top: 24px; height: calc(100vh - 48px); max-height: 780px; }
+/* the card is vertically centred in the viewport, so it lines up with the step being read */
+.story-card { grid-column: 2; grid-row: 1; align-self: start; position: sticky; top: max(24px, calc((100vh - 780px) / 2)); height: min(calc(100vh - 48px), 780px); }
 .steps { grid-column: 1; grid-row: 1; padding: 0 0 30vh; }
 .step { min-height: 78vh; display: flex; flex-direction: column; justify-content: center; opacity: 0.28; transition: opacity 0.4s; }
 .step.on { opacity: 1; }
@@ -341,8 +344,17 @@ h1 {
 .certs {
   margin-top: 64px; padding-top: 28px; border-top: 1px solid var(--line);
 }
-.certs pre { font: 400 14px/1.9 var(--mono); color: var(--fg2); white-space: pre-wrap; }
-.certs .c { color: var(--muted); }
+.certs h3 { font: 500 14px var(--mono); color: var(--muted); margin: 0 0 14px; }
+.cert-list { list-style: none; margin: 0; padding: 0; }
+.cert-list li {
+  display: grid; grid-template-columns: 90px 170px minmax(0, 1fr) 80px; gap: 16px; align-items: baseline;
+  padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 15px;
+}
+.cert-list time, .cert-list .issuer, .cert-list .tag, .cert-list a { font: 400 13px var(--mono); color: var(--muted); }
+.cert-list .name { color: var(--fg); font-weight: 500; }
+.cert-list li:first-child .name { color: var(--accent); }
+.cert-list a, .cert-list .tag { text-align: right; }
+.cert-list a:hover { color: var(--accent); }
 
 
 /* ---------- contact ---------- */
@@ -431,6 +443,11 @@ h1 {
   .repos li { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 640px) {
+  .cert-list li { grid-template-columns: 76px minmax(0, 1fr); gap: 2px 12px; }
+  .cert-list .issuer { grid-column: 2; grid-row: 1; }
+  .cert-list .name { grid-column: 2; }
+  .cert-list a, .cert-list .tag { grid-column: 2; text-align: left; }
+  .cert-list .tag:empty { display: none; }
   .contrib-grid { gap: 1px; }
   .contrib-axis { height: auto; display: grid; gap: 8px; }
   .contrib-axis span { position: static; max-width: none; }
