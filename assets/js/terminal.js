@@ -17,7 +17,7 @@ export class Terminal {
 
     this.commands = {
       help: () => this.help(),
-      whoami: () => [`${PROFILE.handle} — ${PROFILE.role.toLowerCase()} · ${PROFILE.location.toLowerCase()}`, 'building and running enterprise azure platforms @ etteplan'],
+      whoami: () => [`${PROFILE.handle} — ${PROFILE.role.toLowerCase()} · ${PROFILE.location.toLowerCase()}`, 'azure platforms, ai cloud infrastructure, github actions'],
       ls: () => ['about.md  cv.yaml  cv.pdf  skills/  projects/  .secrets'],
       'cat about.md': () => ['Infrastructure first — servers, networks, hypervisors, backups — then cloud.', 'Today: Azure platforms, Terraform, GitHub Actions, observability.', 'Optimising for one thing: making the right way the easy way.'],
       'cat cv.yaml': () => this.cvYaml(),
@@ -131,9 +131,9 @@ export class Terminal {
       'kind: Engineer',
       'metadata:',
       `  name: ${PROFILE.handle}`,
-      '  labels: { role: platform-devops-engineer, cloud: azure, location: poland }',
+      '  labels: { role: platform-devops-engineer, cloud: [azure, nebius], location: poland }',
       'spec:',
-      '  stack: [azure, terraform, ansible, github-actions, powershell, python, vmware, proxmox]',
+      '  stack: [azure, nebius-ai-cloud, terraform, ansible, github-actions, kubernetes, slurm, nvidia-gpu, powershell, python]',
       '  observability: [zabbix, grafana, datadog, wazuh]',
       '  languages: { en: B2+, de: A2 }',
       `  certifications: ${CERTS.length}`,

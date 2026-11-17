@@ -56,6 +56,7 @@ export const LAYERS = [
 ];
 
 export const CERTS = [
+  'Nebius Certified AI CloudOps Engineer',
   'AZ-800 · Windows Server Hybrid Core Infrastructure',
   'AZ-040 · Automate Administration with PowerShell',
   'AZ-900 · Azure Fundamentals',

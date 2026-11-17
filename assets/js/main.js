@@ -4,7 +4,9 @@
 import { Sim, ZONES, setPalette, clamp, lerp, ease } from './sim.js';
 import { Terminal } from './terminal.js';
 import { mountPipeline } from './pipeline.js';
+import { asciiPortrait } from './ascii.js';
 
+asciiPortrait(document.querySelector('.portrait img'), document.querySelector('.portrait .ascii'));
 mountPipeline(document.getElementById('gha'));
 
 // Logo strip: duplicate the list so the marquee loops seamlessly.
@@ -165,6 +167,3 @@ addEventListener('keydown', (e) => {
 });
 addEventListener('keydown', (e) => { if (e.key === 'Escape' && term.isOpen) term.close(); });
 
-// Nav gets a hairline once the page scrolls.
-const nav = $('.nav');
-addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), { passive: true });
