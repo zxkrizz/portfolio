@@ -586,7 +586,7 @@ export class Sim {
 
     const live = this.pods.filter((p) => p.state === 'running').length;
     this.text(`${live}/${this.desired} replicas ready · rolling updates, max surge ${SURGE}`, z.x + 270, z.y + 600, 15, live < this.desired ? C.warn : C.ink2);
-    this.text('Click any pod to break it — the platform heals itself.', z.x + 270, z.y + 640, 15, C.accent, { weight: 500 });
+    this.text('Click any pod to break it. The platform replaces it.', z.x + 270, z.y + 640, 15, C.accent, { weight: 500 });
   }
 
   chart(x, y, w, h, title, data, color, o = {}) {
@@ -643,10 +643,10 @@ export class Sim {
     this.box(bx, by, bw, bh, { fill: paging ? A(C.err, blink ? 0.16 : 0.08) : C.bg, stroke: paging ? C.err : null, lw: 2, r: 16 });
     this.text('Primary', bx + 26, by + 32, 14, C.mute, { sans: true, weight: 500 });
     this.text('Krystian Niwa', bx + 26, by + 78, 44, C.ink, { sans: true, weight: 600 });
-    this.text(paging ? '● Paging — acknowledging' : '● All quiet', bx + 26, by + 130, 16, paging ? C.err : C.ok, { weight: 500 });
+    this.text(paging ? '● Paging' : '● All quiet', bx + 26, by + 130, 16, paging ? C.err : C.ok, { weight: 500 });
 
     this.text('Recent incidents', z.x + 40, z.y + 296, 15, C.mute, { sans: true, weight: 500 });
-    const list = this.alerts.length ? this.alerts : [{ name: 'None yet — try breaking a pod', dur: null }];
+    const list = this.alerts.length ? this.alerts : [{ name: 'None yet. Try breaking a pod.', dur: null }];
     list.slice(0, 4).forEach((al, i) => {
       const y = z.y + 330 + i * 32;
       this.text(al.dur == null ? '·' : '✓', z.x + 40, y, 15, al.dur == null ? C.mute : C.ok);

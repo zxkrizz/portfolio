@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Krystian Niwa — Platform & DevOps Engineer</title>
-  <meta name="description" content="Krystian Niwa — Platform & DevOps Engineer. Azure and AI cloud infrastructure, Terraform, GitHub Actions, Kubernetes and observability. Nebius Certified AI CloudOps Engineer.">
-  <meta property="og:title" content="Krystian Niwa — Platform & DevOps Engineer">
-  <meta property="og:description" content="I build the platforms other engineers ship on. Azure, AI cloud, Terraform, GitHub Actions, Kubernetes, Grafana.">
+  <title>Krystian Niwa · Platform & DevOps Engineer</title>
+  <meta name="description" content="Krystian Niwa, Platform & DevOps Engineer based in Poland. Azure, Terraform, GitHub Actions, Kubernetes and monitoring.">
+  <meta property="og:title" content="Krystian Niwa · Platform & DevOps Engineer">
+  <meta property="og:description" content="Cloud platforms on Azure: Terraform, GitHub Actions, containers and monitoring.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="assets/img/krystian.webp">
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
@@ -19,14 +19,13 @@
 </head>
 <body>
   <main id="top">
-    <!-- HERO (nav lives inside it) -->
     <header class="wrap hero">
       <nav class="topbar" aria-label="Sections">
         <span class="path">~/portfolio <span class="branch">(main)</span></span>
         <span class="nav-links">
           <a href="#pipeline">./pipeline</a>
           <a href="#approach">./approach</a>
-          <a href="#work">./work</a>
+          <a href="#work">./projects</a>
           <a href="#stack">./stack</a>
           <a href="#contact">./contact</a>
         </span>
@@ -37,10 +36,9 @@
           <p class="cmd"><span class="ps">$</span> whoami</p>
           <h1>Krystian Niwa</h1>
           <p class="role">Platform &amp; DevOps Engineer</p>
-          <p class="lead">I build the platforms other engineers ship on — infrastructure as code on Azure, GitHub Actions pipelines from commit to production, GPU-ready Kubernetes, and the observability that keeps it all honest.</p>
+          <p class="lead">I work on cloud platforms in Azure. Most of my time goes into Terraform, GitHub Actions pipelines, containers and monitoring. I like building things other engineers can use without having to ask me how.</p>
           <p class="cta">
             <a href="#contact">→ get in touch</a>
-            <a href="assets/cv.pdf" target="_blank" rel="noopener">↓ cv.pdf</a>
             <a href="https://www.linkedin.com/in/krystian-niwa/" target="_blank" rel="noopener">↗ linkedin</a>
           </p>
         </div>
@@ -48,7 +46,7 @@
         <div class="fetch">
           <p class="cmd"><span class="ps">$</span> neofetch --ascii krystian.webp</p>
           <div class="fetch-grid">
-            <div class="portrait" title="hover to render in truecolor">
+            <div class="portrait" title="hover to see the photo">
               <pre class="ascii" aria-hidden="true"></pre>
               <img src="assets/img/krystian.webp" alt="Portrait of Krystian Niwa" width="1254" height="1254">
             </div>
@@ -56,15 +54,14 @@
 -----------------
 <i>Role</i>     Platform &amp; DevOps Engineer
 <i>Base</i>     Poland (CET)
-<i>Cloud</i>    Azure, Nebius AI Cloud, GCP
+<i>Cloud</i>    Azure
 <i>IaC</i>      Terraform, Ansible
 <i>CI/CD</i>    GitHub Actions
-<i>Runtime</i>  Docker, Kubernetes, Slurm
-<i>GPU</i>      NVIDIA, InfiniBand
+<i>Runtime</i>  Docker, Kubernetes, Proxmox
 <i>Observe</i>  Grafana, Zabbix, Datadog
 <i>Shell</i>    pwsh, bash, python
-<i>Certs</i>    Nebius AI CloudOps, AZ-800,
-         AZ-900, MS-900
+<i>Certs</i>    AZ-800, AZ-900, MS-900,
+         Nebius AI CloudOps
 
 <span class="sw"><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u></span></pre>
           </div>
@@ -72,18 +69,15 @@
       </div>
     </header>
 
-    <!-- LOGO STRIP -->
     <section class="strip" aria-label="Technologies I work with">
       <div class="strip-track">
         <ul class="strip-list">
           <li><img src="assets/logos/microsoft.svg" alt="">Microsoft</li>
           <li><img src="assets/logos/azure.svg" alt="">Azure</li>
-          <li><img src="assets/logos/nebius.svg" alt="">Nebius</li>
           <li><img src="assets/logos/terraform.svg" alt="">Terraform</li>
           <li><img src="assets/logos/githubactions.svg" alt="">GitHub Actions</li>
           <li><img src="assets/logos/docker.svg" alt="">Docker</li>
           <li><img src="assets/logos/kubernetes.svg" alt="">Kubernetes</li>
-          <li><img src="assets/logos/nvidia.svg" alt="">NVIDIA</li>
           <li><img src="assets/logos/grafana.svg" alt="">Grafana</li>
           <li><img src="assets/logos/zabbix.svg" alt="">Zabbix</li>
           <li><img src="assets/logos/ansible.svg" alt="" class="mono">Ansible</li>
@@ -91,16 +85,16 @@
           <li><img src="assets/logos/python.svg" alt="">Python</li>
           <li><img src="assets/logos/linux.svg" alt="" class="mono">Linux</li>
           <li><img src="assets/logos/proxmox.svg" alt="">Proxmox</li>
+          <li><img src="assets/logos/datadog.svg" alt="">Datadog</li>
         </ul>
       </div>
     </section>
 
-    <!-- GITHUB ACTIONS PIPELINE -->
     <section id="pipeline" class="wrap section">
       <div class="section-head">
         <p class="label">## pipeline</p>
-        <h2>From commit to production, on autopilot.</h2>
-        <p>Every change runs through a pipeline like this one — validated, tested, planned, deployed and verified, with no manual steps.</p>
+        <h2>What a deploy looks like</h2>
+        <p>A simulated run of the kind of GitHub Actions workflow I set up for infrastructure and application changes. Nobody logs into a portal to release anything.</p>
       </div>
       <div class="gha" id="gha">
         <div class="gha-head">
@@ -122,13 +116,12 @@
     </section>
 
     <section class="wrap statement">
-      <p>I came to the cloud through infrastructure — servers, networks, hypervisors, backups. <span>That is why the platforms I build are deliberately boring: predictable, observable, and easy to use the right way.</span></p>
+      <p>I started with on-prem infrastructure: servers, networks, VMware and backups. <span>I moved to Azure from there, and I still think about the person who will have to operate whatever I build.</span></p>
     </section>
 
-    <!-- HOW I WORK (sticky live simulation) -->
     <section id="approach" class="wrap story">
       <div class="card story-card">
-        <canvas id="story-canvas" aria-label="Live simulation of a cloud platform: commits flow through CI, are deployed to Kubernetes and monitored."></canvas>
+        <canvas id="story-canvas" aria-label="Live simulation of a cloud platform: commits go through CI, get deployed to Kubernetes and are monitored."></canvas>
         <p class="overlay"><span class="live" data-health="ok"></span><span data-stat="ready">9/9 healthy</span> · <span data-stat="rps">0 req/s</span></p>
         <p class="event" data-event aria-hidden="true"></p>
       </div>
@@ -137,81 +130,72 @@
         <p class="label">## approach</p>
         <article class="step" data-zones="git,ci">
           <p class="num">01</p>
-          <h2>Everything is code, and code goes through a pipeline.</h2>
-          <p>Infrastructure lives in Terraform and ships with GitHub Actions — planned, reviewed and applied the same way every time. No portal clicks nobody can reproduce.</p>
+          <h2>Infrastructure as code</h2>
+          <p>I define infrastructure in Terraform and deploy it through GitHub Actions. Every change goes through a pull request and a plan before anything is applied.</p>
         </article>
         <article class="step" data-zones="registry">
           <p class="num">02</p>
-          <h2>Golden paths, not gatekeeping.</h2>
-          <p>I package the approved way of doing things into reusable modules and workflows, so teams get a secure, tagged, policy-compliant environment by default.</p>
+          <h2>Reusable building blocks</h2>
+          <p>When a team needs the same thing twice, I turn it into a module or a shared workflow with tags, networking and policies already in place.</p>
         </article>
         <article class="step" data-zones="cluster">
           <p class="num">03</p>
-          <h2>Built to heal itself.</h2>
-          <p>Redundancy, health checks and automation first; heroics last. That goes for app pods and for GPU nodes alike. Try it — click any pod and watch the platform replace it.</p>
+          <h2>Recovery without a human</h2>
+          <p>Health checks and redundancy should handle the common failures on their own. You can test it here: click any pod in the cluster and it gets replaced.</p>
         </article>
         <article class="step" data-zones="observe">
           <p class="num">04</p>
-          <h2>Measured, not assumed.</h2>
-          <p>Grafana, Zabbix and Datadog across cloud, on-prem and GPU fleets — alerting on what users actually feel, plus GPU and interconnect health events.</p>
+          <h2>Monitoring</h2>
+          <p>I have set up Zabbix, Grafana, Datadog and Wazuh in on-prem and cloud environments. A good alert points at something a user would actually notice.</p>
         </article>
         <article class="step" data-zones="pager">
           <p class="num">05</p>
-          <h2>Accountable when it breaks.</h2>
-          <p>When something fails I fix it calmly, find the root cause, and automate it out of existence.</p>
+          <h2>On-call</h2>
+          <p>When something breaks I find the cause, fix it, and then write down or automate whatever would stop it from happening again.</p>
         </article>
       </div>
     </section>
 
-    <!-- WORK -->
     <section id="work" class="wrap section">
       <div class="section-head">
-        <p class="label">## work</p>
-        <h2>Selected work</h2>
+        <p class="label">## projects</p>
+        <h2>Projects</h2>
       </div>
       <ol class="repos">
         <li>
           <span class="idx">01</span>
           <h3>azure-golden-paths</h3>
-          <p>Reusable Terraform modules and GitHub Actions workflows that give teams a compliant Azure environment in a single pull request.</p>
+          <p>Terraform modules and reusable GitHub Actions workflows for provisioning Azure resources in a standard way, with tagging, networking and policy set up from the first commit.</p>
           <span class="tech"><img src="assets/logos/terraform.svg" alt="Terraform"><img src="assets/logos/githubactions.svg" alt="GitHub Actions"><img src="assets/logos/azure.svg" alt="Azure"></span>
         </li>
         <li>
           <span class="idx">02</span>
-          <h3>gpu-cluster-ops</h3>
-          <p>Day-two operations for AI infrastructure: GPU-ready Kubernetes and managed Slurm, storage for training jobs, and health checks for GPUs and the InfiniBand fabric.</p>
-          <span class="tech"><img src="assets/logos/nebius.svg" alt="Nebius"><img src="assets/logos/nvidia.svg" alt="NVIDIA"><img src="assets/logos/kubernetes.svg" alt="Kubernetes"></span>
-        </li>
-        <li>
-          <span class="idx">03</span>
           <h3>homelab</h3>
-          <p>A Proxmox cluster running containers, verified backups and Grafana dashboards — where new tools get tested long before production.</p>
+          <p>A Proxmox cluster at home running Docker workloads, Proxmox Backup Server and Grafana. I try new tools here before I use them at work.</p>
           <span class="tech"><img src="assets/logos/proxmox.svg" alt="Proxmox"><img src="assets/logos/docker.svg" alt="Docker"><img src="assets/logos/grafana.svg" alt="Grafana"></span>
         </li>
         <li>
-          <span class="idx">04</span>
+          <span class="idx">03</span>
           <h3>ops-automation</h3>
-          <p>PowerShell and Python tooling that replaced repetitive admin work — identity lifecycle, reporting, health checks — now with LLM-assisted triage.</p>
+          <p>PowerShell and Python scripts for user onboarding and offboarding in Entra ID and Active Directory, reports and health checks. Lately also some experiments with LLMs for ticket triage.</p>
           <span class="tech"><img src="assets/logos/powershell.svg" alt="PowerShell"><img src="assets/logos/python.svg" alt="Python"><img src="assets/logos/microsoft.svg" alt="Microsoft"></span>
         </li>
       </ol>
     </section>
 
-    <!-- STACK -->
     <section id="stack" class="wrap section">
       <div class="section-head">
         <p class="label">## stack</p>
-        <h2>The stack I run.</h2>
-        <p>Microsoft-first, cloud-native where it counts, GPU-aware, and comfortable on bare metal.</p>
+        <h2>Stack</h2>
+        <p>What I use day to day.</p>
       </div>
       <div class="stack">
         <div>
           <h3># cloud</h3>
           <ul>
             <li><img src="assets/logos/azure.svg" alt="">Azure</li>
-            <li><img src="assets/logos/nebius.svg" alt="">Nebius AI Cloud</li>
-            <li><img src="assets/logos/googlecloud.svg" alt="">Google Cloud</li>
-            <li><img src="assets/logos/microsoft.svg" alt="">Microsoft 365 / Entra ID</li>
+            <li><img src="assets/logos/microsoft.svg" alt="">Entra ID / Microsoft 365</li>
+            <li><img src="assets/logos/windows.svg" alt="">Windows Server</li>
           </ul>
         </div>
         <div>
@@ -229,13 +213,13 @@
           <ul>
             <li><img src="assets/logos/kubernetes.svg" alt="">Kubernetes</li>
             <li><img src="assets/logos/docker.svg" alt="">Docker</li>
-            <li><img src="assets/logos/nvidia.svg" alt="">NVIDIA GPUs · Slurm</li>
-            <li><img src="assets/logos/proxmox.svg" alt="">Proxmox · VMware</li>
-            <li><img src="assets/logos/linux.svg" alt="" class="mono">Linux · Windows Server</li>
+            <li><img src="assets/logos/proxmox.svg" alt="">Proxmox</li>
+            <li><img src="assets/logos/vmware.svg" alt="" class="wide">VMware</li>
+            <li><img src="assets/logos/linux.svg" alt="" class="mono">Linux</li>
           </ul>
         </div>
         <div>
-          <h3># observe &amp; secure</h3>
+          <h3># monitoring &amp; security</h3>
           <ul>
             <li><img src="assets/logos/grafana.svg" alt="">Grafana</li>
             <li><img src="assets/logos/zabbix.svg" alt="">Zabbix</li>
@@ -247,23 +231,22 @@
       </div>
 
 <pre class="certs"><span class="c"># certifications</span>
-<b>Nebius Certified AI CloudOps Engineer</b>  <span class="c">← latest · GPU clusters, Slurm, InfiniBand, AI workloads</span>
 AZ-800  Windows Server Hybrid Core Infrastructure
 AZ-040  Automate Administration with PowerShell
-AZ-900  Azure Fundamentals          MS-900  Microsoft 365 Fundamentals
+AZ-900  Azure Fundamentals
+MS-900  Microsoft 365 Fundamentals
+        Nebius AI CloudOps Engineer
 FCA     Fortinet Certified Associate in Cybersecurity
-CCNA    Introduction to Networks    AWS Academy Cloud Foundations</pre>
+CCNA    Introduction to Networks</pre>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact" class="wrap contact">
       <p class="label">## contact</p>
-      <h2>Let’s build something reliable.</h2>
-      <p class="lead">Open to Platform and DevOps engineering roles. I usually reply within a day.</p>
-      <a class="mail" href="mailto:krystianniwa.poczta@gmail.com?subject=Let%27s%20talk">krystianniwa.poczta@gmail.com</a>
+      <h2>Get in touch</h2>
+      <p class="lead">I'm open to Platform and DevOps roles. Email is the fastest way to reach me.</p>
+      <a class="mail" href="mailto:krystianniwa.poczta@gmail.com">krystianniwa.poczta@gmail.com</a>
       <p class="cta">
         <a href="https://www.linkedin.com/in/krystian-niwa/" target="_blank" rel="noopener">↗ linkedin</a>
-        <a href="assets/cv.pdf" target="_blank" rel="noopener">↓ cv.pdf</a>
         <button type="button" data-open-term>&gt;_ open a shell</button>
       </p>
     </section>
@@ -271,7 +254,7 @@ CCNA    Introduction to Networks    AWS Academy Cloud Foundations</pre>
 
   <footer class="wrap foot">
     <span>© 2026 Krystian Niwa</span>
-    <span>shipped with GitHub Actions · press <kbd>`</kbd> for a shell</span>
+    <span>press <kbd>`</kbd> for a shell</span>
   </footer>
 
   <div id="term" class="term" aria-hidden="true" role="dialog" aria-label="Interactive shell">

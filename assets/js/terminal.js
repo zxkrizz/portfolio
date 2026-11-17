@@ -17,12 +17,11 @@ export class Terminal {
 
     this.commands = {
       help: () => this.help(),
-      whoami: () => [`${PROFILE.handle} — ${PROFILE.role.toLowerCase()} · ${PROFILE.location.toLowerCase()}`, 'azure platforms, ai cloud infrastructure, github actions'],
-      ls: () => ['about.md  cv.yaml  cv.pdf  skills/  projects/  .secrets'],
-      'cat about.md': () => ['Infrastructure first — servers, networks, hypervisors, backups — then cloud.', 'Today: Azure platforms, Terraform, GitHub Actions, observability.', 'Optimising for one thing: making the right way the easy way.'],
-      'cat cv.yaml': () => this.cvYaml(),
-      'cat .secrets': () => [{ cls: 'err', text: 'permission denied — secrets live in key vault, not in repos.' }],
-      'cat cv.pdf': () => ['binary file. try `cv` to open it.'],
+      whoami: () => [`${PROFILE.handle} — ${PROFILE.role.toLowerCase()} · ${PROFILE.location.toLowerCase()}`, 'azure, terraform, github actions, kubernetes, monitoring'],
+      ls: () => ['about.md  profile.yaml  skills/  projects/  .secrets'],
+      'cat about.md': () => ['Started with on-prem: servers, networks, VMware, backups.', 'Now working on Azure platforms with Terraform and GitHub Actions.'],
+      'cat profile.yaml': () => this.cvYaml(),
+      'cat .secrets': () => [{ cls: 'err', text: 'permission denied. secrets live in key vault, not in repos.' }],
       'ls skills': () => LAYERS.map((l) => `  ${l.name}`),
       'ls projects': () => ['azure-golden-paths/  homelab/  ops-automation/  this-site/'],
       'kubectl get pods': () => this.pods(),
@@ -36,14 +35,13 @@ export class Terminal {
       'terraform plan': () => this.plan(),
       'terraform apply': () => [{ cls: 'err', text: 'Error: apply requires approval from a hiring manager.' }, 'hint: run `contact`'],
       contact: () => this.contact(),
-      cv: () => { window.open(PROFILE.cv, '_blank', 'noopener'); return ['opening cv.pdf…']; },
       linkedin: () => { window.open(PROFILE.linkedin, '_blank', 'noopener'); return ['opening linkedin…']; },
-      'sudo hire krystian': () => { location.href = `mailto:${PROFILE.email}?subject=${encodeURIComponent('Let\'s talk — Platform / DevOps role')}`; return [{ cls: 'ok', text: '[sudo] permission granted. opening mail client…' }]; },
+      'sudo hire krystian': () => { location.href = `mailto:${PROFILE.email}?subject=${encodeURIComponent('Platform / DevOps role')}`; return [{ cls: 'ok', text: '[sudo] permission granted. opening mail client…' }]; },
       'ping krystian': () => ['PING krystian (open-to-work): 56 data bytes', '64 bytes from krystian: icmp_seq=0 ttl=64 time<24h', '--- 1 packets transmitted, 1 received, 0% packet loss ---'],
       clear: () => { this.out.textContent = ''; return []; },
       exit: () => { this.api.close(); return []; },
     };
-    this.aliases = { 'k get pods': 'kubectl get pods', 'k get po': 'kubectl get pods', 'kubectl get po': 'kubectl get pods', 'k delete pod --all': 'kubectl delete pod --all', 'kubectl get deployment': 'kubectl get deploy', 'cat cv': 'cat cv.yaml', 'sudo hire': 'sudo hire krystian', 'hire': 'sudo hire krystian', 'k rollout history': 'kubectl rollout history' };
+    this.aliases = { 'k get pods': 'kubectl get pods', 'k get po': 'kubectl get pods', 'kubectl get po': 'kubectl get pods', 'k delete pod --all': 'kubectl delete pod --all', 'kubectl get deployment': 'kubectl get deploy', 'cat profile': 'cat profile.yaml', 'sudo hire': 'sudo hire krystian', 'hire': 'sudo hire krystian', 'k rollout history': 'kubectl rollout history' };
 
     this.input.addEventListener('keydown', (e) => this.onKey(e));
     root.addEventListener('click', (e) => { if (e.target.closest('a,button')) return; this.input.focus(); });
@@ -113,14 +111,14 @@ export class Terminal {
   help() {
     const rows = [
       ['whoami', 'who is this'],
-      ['cat cv.yaml', 'the cv, as config'],
+      ['cat profile.yaml', 'the short version'],
       ['kubectl get pods', 'live pods in the cluster'],
       ['kubectl delete pod --all', 'chaos engineering (go on)'],
       ['kubectl rollout history', 'recent deployments'],
       ['kubectl get certs', 'certifications'],
       ['git log · gh run list', 'what the pipeline is doing'],
       ['terraform plan', 'what happens if you hire me'],
-      ['contact · cv · linkedin', 'reach out'],
+      ['contact · linkedin', 'reach out'],
       ['clear · exit', ''],
     ];
     return ['available commands:', ...rows.map(([c, d]) => `  ${c.padEnd(28)}${d}`)];
@@ -131,9 +129,9 @@ export class Terminal {
       'kind: Engineer',
       'metadata:',
       `  name: ${PROFILE.handle}`,
-      '  labels: { role: platform-devops-engineer, cloud: [azure, nebius], location: poland }',
+      '  labels: { role: platform-devops-engineer, cloud: azure, location: poland }',
       'spec:',
-      '  stack: [azure, nebius-ai-cloud, terraform, ansible, github-actions, kubernetes, slurm, nvidia-gpu, powershell, python]',
+      '  stack: [azure, terraform, ansible, github-actions, docker, kubernetes, powershell, python]',
       '  observability: [zabbix, grafana, datadog, wazuh]',
       '  languages: { en: B2+, de: A2 }',
       `  certifications: ${CERTS.length}`,
@@ -186,7 +184,6 @@ export class Terminal {
     return [
       { label: 'email     ', href: `mailto:${PROFILE.email}`, text: PROFILE.email },
       { label: 'linkedin  ', href: PROFILE.linkedin, text: 'linkedin.com/in/krystian-niwa' },
-      { label: 'cv        ', href: PROFILE.cv, text: 'cv.pdf' },
     ];
   }
 }

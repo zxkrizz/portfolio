@@ -14,7 +14,7 @@ const JOBS = [
   { id: 'deploy', name: 'Deploy to AKS', logo: 'kubernetes', col: 3, needs: ['build', 'plan'], dur: 2.4,
     log: ['Run terraform apply tfplan', 'Run helm upgrade --install platform ./chart', 'deployment "platform" successfully rolled out'] },
   { id: 'verify', name: 'Verify', logo: 'grafana', col: 4, needs: ['deploy'], dur: 1.5,
-    log: ['Run smoke tests · 12/12 passed', 'Grafana annotation: release {tag}', 'Error budget burn: 0.2× — healthy'] },
+    log: ['Run smoke tests · 12/12 passed', 'Grafana annotation: release {tag}', 'Error budget burn: 0.2x'] },
 ];
 
 const hex = (n) => Array.from({ length: n }, () => '0123456789abcdef'[(Math.random() * 16) | 0]).join('');

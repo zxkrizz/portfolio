@@ -8,7 +8,6 @@ export const PROFILE = {
   location: 'Poland',
   email: 'krystianniwa.poczta@gmail.com',
   linkedin: 'https://www.linkedin.com/in/krystian-niwa/',
-  cv: 'assets/cv.pdf',
 };
 
 // Commit messages the simulated repo pushes, in order (they loop).
@@ -49,7 +48,7 @@ export const LAYERS = [
   { name: 'virtualization · vmware · proxmox',     size: '1.4GB' },
   { name: 'backup · veeam · azure backup',         size: '780MB' },
   { name: 'observability · grafana · zabbix',      size: '230MB' },
-  { name: 'cloud · azure · gcp',                   size: '1.9GB' },
+  { name: 'cloud · azure',                         size: '1.9GB' },
   { name: 'iac · terraform · ansible',             size: '640MB' },
   { name: 'ci/cd · github actions',                size: '120MB' },
   { name: 'automation · powershell · python',      size: '64MB' },

@@ -6,7 +6,7 @@ follows the "How I work" steps. Light and dark themes follow the system setting.
 
 - Zero dependencies, no build step — `index.html` + `assets/`.
 - Click a pod in the cluster to kill it; the reconciler heals it and the alert pages on-call.
-- Press `` ` `` (or Ctrl/Cmd+K) for a shell: `help`, `kubectl get pods`, `kubectl delete pod --all`, `terraform plan`, `cat cv.yaml`…
+- Press `` ` `` (or Ctrl/Cmd+K) for a shell: `help`, `kubectl get pods`, `kubectl delete pod --all`, `terraform plan`, `cat profile.yaml`…
 
 ## Run locally
 
