@@ -7,6 +7,7 @@ export const PROFILE = {
   role: 'Platform & DevOps Engineer',
   location: 'Poland',
   linkedin: 'https://www.linkedin.com/in/krystian-niwa/',
+  github: 'https://github.com/zxkrizz',
 };
 
 // Commit messages the simulated repo pushes, in order (they loop).

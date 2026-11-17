@@ -34,6 +34,7 @@ export class Terminal {
       'gh run list': () => this.sim.runs.map((r) => `✓  #${r.n}  ${r.msg.padEnd(36)} ${r.dur.toFixed(1)}s`),
       contact: () => this.contact(),
       linkedin: () => { window.open(PROFILE.linkedin, '_blank', 'noopener'); return ['opening linkedin…']; },
+      github: () => { window.open(PROFILE.github, '_blank', 'noopener'); return ['opening github…']; },
       clear: () => { this.out.textContent = ''; return []; },
       exit: () => { this.api.close(); return []; },
     };
@@ -113,7 +114,7 @@ export class Terminal {
       ['kubectl rollout history', 'recent deployments'],
       ['kubectl get certs', 'certifications'],
       ['git log · gh run list', 'what the pipeline is doing'],
-      ['contact · linkedin', 'reach out'],
+      ['contact · linkedin · github', 'reach out'],
       ['clear · exit', ''],
     ];
     return ['available commands:', ...rows.map(([c, d]) => `  ${c.padEnd(28)}${d}`)];
@@ -162,6 +163,7 @@ export class Terminal {
   contact() {
     return [
       { label: 'linkedin  ', href: PROFILE.linkedin, text: 'linkedin.com/in/krystian-niwa' },
+      { label: 'github    ', href: PROFILE.github, text: 'github.com/zxkrizz' },
     ];
   }
 }

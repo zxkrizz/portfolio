@@ -3,11 +3,12 @@
 // so the portrait reads correctly on both light (dark ink) and dark (light ink) themes.
 
 // light → dense (Paul Bourke's 70-level ramp, reversed)
+import { isDark, onThemeChange } from './theme.js';
+
 const RAMP = " .'`^\",:;Il!i><~+_-?][}{1)(|/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$";
 
 export function asciiPortrait(img, pre, { cols = 72, crop = [0.22, 0.05, 0.58, 0.8], cell = 0.6, tol = 70, step = 16 } = {}) {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const scheme = matchMedia('(prefers-color-scheme: dark)');
   let timer = 0;
 
   function frame() {
@@ -62,7 +63,7 @@ export function asciiPortrait(img, pre, { cols = 72, crop = [0.22, 0.05, 0.58, 0
     for (let i = 0; i < n; i++) if (!bg[i]) fg.push(lum[i]);
     fg.sort((a, b) => a - b);
     const rank = (v) => { let lo = 0, hi = fg.length; while (lo < hi) { const m = (lo + hi) >> 1; if (fg[m] < v) lo = m + 1; else hi = m; } return lo / (fg.length || 1); };
-    const dark = scheme.matches;
+    const dark = isDark();
 
     const lines = [];
     for (let y = 0; y < rows; y++) {
@@ -93,5 +94,5 @@ export function asciiPortrait(img, pre, { cols = 72, crop = [0.22, 0.05, 0.58, 0
 
   const go = () => { if (img.naturalWidth) render(); };
   if (img.complete) go(); else img.addEventListener('load', go, { once: true });
-  scheme.addEventListener('change', go);
+  onThemeChange(go);
 }

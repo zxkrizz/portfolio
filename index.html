@@ -4,18 +4,52 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Krystian Niwa · Platform & DevOps Engineer</title>
-  <meta name="description" content="Krystian Niwa, Platform & DevOps Engineer based in Poland. Azure, Terraform, GitHub Actions, Kubernetes and monitoring.">
-  <meta property="og:title" content="Krystian Niwa · Platform & DevOps Engineer">
-  <meta property="og:description" content="Cloud platforms on Azure: Terraform, GitHub Actions, containers and monitoring.">
+  <script>
+    // theme before first paint: the visitor's saved choice, otherwise the system setting
+    (function () {
+      var t; try { t = localStorage.getItem('theme'); } catch (e) {}
+      var dark = t ? t === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+      var r = document.documentElement;
+      r.setAttribute('data-theme', dark ? 'dark' : 'light');
+      r.classList.add('js');
+    })();
+  </script>
+  <meta name="description" content="Krystian Niwa, Platform & DevOps Engineer in Poland. Enterprise Azure, golden images, Terraform, GitHub Actions, Ansible and monitoring.">
+  <link rel="canonical" href="__SITE_URL__/">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="assets/img/krystian.webp">
+  <meta property="og:url" content="__SITE_URL__/">
+  <meta property="og:title" content="Krystian Niwa · Platform & DevOps Engineer">
+  <meta property="og:description" content="Enterprise Azure, golden images, Terraform, GitHub Actions, Ansible and monitoring.">
+  <meta property="og:image" content="__SITE_URL__/assets/img/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="627">
+  <meta property="og:image:alt" content="Krystian Niwa, Platform & DevOps Engineer">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#0b0b0c" media="(prefers-color-scheme: dark)">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Krystian Niwa",
+    "jobTitle": "Platform & DevOps Engineer",
+    "url": "__SITE_URL__/",
+    "image": "__SITE_URL__/assets/img/krystian.webp",
+    "address": { "@type": "PostalAddress", "addressCountry": "PL" },
+    "sameAs": ["https://www.linkedin.com/in/krystian-niwa/", "https://github.com/zxkrizz"],
+    "knowsAbout": ["Microsoft Azure", "Terraform", "GitHub Actions", "Ansible", "Platform engineering", "Zabbix", "Grafana", "PowerShell"]
+  }
+  </script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d1117'/%3E%3Cpath d='M9 21l5-5-5-5' stroke='%234493f8' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M16 22h7' stroke='%23fff' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <noscript><style>
+    .ascii, .contrib, .gha-graph, .gha-foot, .story-card canvas, .overlay { display: none !important; }
+    .portrait img { position: static !important; opacity: 1 !important; width: 260px; height: auto; aspect-ratio: 4 / 5; }
+    .portrait-hint { display: none; }
+  </style></noscript>
 </head>
 <body>
   <main id="top">
@@ -29,6 +63,7 @@
           <a href="#work">./projects</a>
           <a href="#stack">./stack</a>
           <a href="#contact">./contact</a>
+          <button class="theme-toggle" type="button" data-theme-toggle>◐ dark</button>
         </span>
       </nav>
 
@@ -37,17 +72,18 @@
           <p class="cmd"><span class="ps">$</span> whoami</p>
           <h1>Krystian Niwa</h1>
           <p class="role">Platform &amp; DevOps Engineer</p>
-          <p class="lead">I work on cloud platforms in Azure. Most of my time goes into Terraform, GitHub Actions pipelines, containers and monitoring. I like building things other engineers can use without having to ask me how.</p>
+          <p class="lead">I build and run critical enterprise infrastructure on Azure: hardened golden images, Terraform, GitHub Actions pipelines and the monitoring that keeps it all healthy. I like building things other engineers can use without having to ask me how.</p>
           <p class="cta">
             <a href="https://www.linkedin.com/in/krystian-niwa/" target="_blank" rel="noopener">↗ message me on linkedin</a>
-            <a href="#growth">↓ how far I've come</a>
+            <a href="https://github.com/zxkrizz" target="_blank" rel="noopener">↗ github</a>
+            <a href="#work">↓ see my work</a>
           </p>
         </div>
 
         <div class="fetch">
           <p class="cmd"><span class="ps">$</span> neofetch --ascii krystian.webp</p>
           <div class="fetch-grid">
-            <div class="portrait" title="hover to see the photo">
+            <div class="portrait" role="button" tabindex="0" aria-pressed="false" aria-label="Show the photo instead of the ASCII portrait">
               <pre class="ascii" aria-hidden="true"></pre>
               <img src="assets/img/krystian.webp" alt="Portrait of Krystian Niwa" width="1254" height="1254">
             </div>
@@ -58,7 +94,8 @@
 <i>Cloud</i>    Azure
 <i>IaC</i>      Terraform, Ansible
 <i>CI/CD</i>    GitHub Actions
-<i>Runtime</i>  Docker, Kubernetes, Proxmox
+<i>Images</i>   Windows Server, RHEL, Debian,
+         Rocky, Ubuntu
 <i>Observe</i>  Grafana, Zabbix, Datadog
 <i>Shell</i>    pwsh, bash, python
 <i>Certs</i>    Nebius AI CloudOps, FCA,
@@ -67,6 +104,7 @@
 
 <span class="sw"><u></u><u></u><u></u><u></u><u></u><u></u><u></u><u></u></span></pre>
           </div>
+          <p class="portrait-hint"><span class="hover-only">hover</span><span class="touch-only">tap</span> the portrait to see the photo</p>
         </div>
       </div>
     </header>
@@ -79,11 +117,11 @@
             <li><img src="assets/logos/azure.svg" alt="">Azure</li>
             <li><img src="assets/logos/terraform.svg" alt="">Terraform</li>
             <li><img src="assets/logos/githubactions.svg" alt="">GitHub Actions</li>
+            <li><img src="assets/logos/ansible.svg" alt="">Ansible</li>
             <li><img src="assets/logos/docker.svg" alt="">Docker</li>
             <li><img src="assets/logos/kubernetes.svg" alt="">Kubernetes</li>
             <li><img src="assets/logos/grafana.svg" alt="">Grafana</li>
             <li><img src="assets/logos/zabbix.svg" alt="">Zabbix</li>
-            <li><img src="assets/logos/ansible.svg" alt="">Ansible</li>
             <li><img src="assets/logos/powershell.svg" alt="">PowerShell</li>
             <li><img src="assets/logos/python.svg" alt="">Python</li>
             <li><img src="assets/logos/linux.svg" alt="">Linux</li>
@@ -108,7 +146,7 @@
           <div class="contrib-grid" data-contrib></div>
           <div class="contrib-axis" data-contrib-axis></div>
           <figcaption>
-            <span>Each square is a week. The stronger the colour, the more I was responsible for.</span>
+            <span>Illustrative, not commit data. Each square is a week; the stronger the colour, the more I was responsible for.</span>
             <span class="legend" aria-hidden="true">less <i></i><i></i><i></i><i></i><i></i> more</span>
           </figcaption>
         </figure>
@@ -117,10 +155,10 @@
       <div class="now reveal">
         <p class="now-title">Right now <span>platform, DevOps and cloud engineering in a large enterprise Azure environment</span></p>
         <dl class="now-list">
-          <div><dt>platform</dt><dd>Building golden paths: reusable Terraform modules and templates that give teams self-service infrastructure with networking, tagging and policy already in place.</dd></div>
-          <div><dt>ci/cd</dt><dd>GitHub Actions pipelines for infrastructure as code, with OIDC authentication to Azure, Terraform plans reviewed in pull requests and approval gates before production.</dd></div>
-          <div><dt>reliability</dt><dd>Keeping business-critical cloud and hybrid workloads available: incident response, root cause analysis, monitoring and alerting that catch problems before users do.</dd></div>
-          <div><dt>governance</dt><dd>Identity and access with Entra ID and RBAC, Azure governance and cost visibility, and automation in PowerShell, Python and Ansible that removes repetitive operational work.</dd></div>
+          <div><dt>platform</dt><dd>Golden images and reusable Terraform modules, so every VM and every environment starts from the same hardened, compliant baseline.</dd></div>
+          <div><dt>ci/cd</dt><dd>GitHub Actions pipelines for infrastructure as code, with OIDC authentication to Azure, plans reviewed in pull requests and approval gates before production.</dd></div>
+          <div><dt>reliability</dt><dd>Keeping business-critical cloud and hybrid workloads available: incident response, root cause analysis, and monitoring that catches problems before users do.</dd></div>
+          <div><dt>governance</dt><dd>Identity and access with Entra ID and RBAC, Azure governance and cost visibility, and Ansible and PowerShell automation for work that used to be done by hand.</dd></div>
         </dl>
       </div>
     </section>
@@ -146,6 +184,7 @@
         <div class="gha-graph" data-graph>
           <svg class="gha-wires" aria-hidden="true"></svg>
         </div>
+        <noscript><p class="gha-nojs">lint, tests and a security scan run in parallel → image build and Terraform plan → deploy to staging → approval → deploy to production → verify. The live run needs JavaScript.</p></noscript>
         <div class="gha-foot">
           <div class="gha-log" aria-live="off">
             <div class="gha-log-head"><strong data-log-head>Lint</strong><span data-log-meta>runs-on: ubuntu-latest</span></div>
@@ -176,7 +215,7 @@
 
     <section id="approach" class="wrap story">
       <div class="card story-card">
-        <canvas id="story-canvas" aria-label="Live simulation of a cloud platform: commits go through CI, get deployed to Kubernetes and are monitored."></canvas>
+        <canvas id="story-canvas" aria-label="Live simulation of a cloud platform: commits go through CI, get deployed and are monitored."></canvas>
         <p class="overlay"><span class="live" data-health="ok"></span><span data-stat="ready">9/9 healthy</span> · <span data-stat="rps">0 req/s</span></p>
         <p class="event" data-event aria-hidden="true"></p>
       </div>
@@ -184,24 +223,16 @@
       <div class="steps">
         <p class="label">## approach</p>
         <article class="step" data-zones="git,ci">
-          <h2>Infrastructure as code</h2>
-          <p>I define infrastructure in Terraform and deploy it through GitHub Actions. Every change goes through a pull request and a plan before anything is applied.</p>
-        </article>
-        <article class="step" data-zones="registry">
-          <h2>Reusable building blocks</h2>
-          <p>When a team needs the same thing twice, I turn it into a module or a shared workflow with tags, networking and policies already in place.</p>
+          <h2>Nothing changes by hand</h2>
+          <p>If it runs in production, it is described in code and reaches production through a pipeline. That makes every change reviewable, repeatable and easy to roll back.</p>
         </article>
         <article class="step" data-zones="cluster">
-          <h2>Recovery without a human</h2>
-          <p>Health checks and redundancy should handle the common failures on their own. You can test it here: click any pod in the cluster and it gets replaced.</p>
+          <h2>Failures should fix themselves</h2>
+          <p>Health checks and redundancy handle the common failures, so people only deal with the unusual ones. Try it: click any pod in the cluster and watch it get replaced.</p>
         </article>
-        <article class="step" data-zones="observe">
-          <h2>Monitoring</h2>
-          <p>I have set up Zabbix, Grafana, Datadog and Wazuh in on-prem and cloud environments. A good alert points at something a user would actually notice.</p>
-        </article>
-        <article class="step" data-zones="pager">
-          <h2>On-call</h2>
-          <p>When something breaks I find the cause, fix it, and then write down or automate whatever would stop it from happening again.</p>
+        <article class="step" data-zones="observe,pager">
+          <h2>Know before the users do</h2>
+          <p>Alerts point at what users would actually feel. When something does break, I find the root cause and automate it away, so the same page never fires twice.</p>
         </article>
       </div>
     </section>
@@ -210,24 +241,64 @@
       <div class="section-head">
         <p class="label">## projects</p>
         <h2>Projects</h2>
+        <p>Most of this runs in production at work, so the code stays private. Here is what each one does and what it changed.</p>
       </div>
-      <ol class="repos">
-        <li>
-          <h3>azure-golden-paths</h3>
-          <p>Terraform modules and reusable GitHub Actions workflows for provisioning Azure resources in a standard way, with tagging, networking and policy set up from the first commit.</p>
-          <span class="tech"><img src="assets/logos/terraform.svg" alt="Terraform"><img src="assets/logos/githubactions.svg" alt="GitHub Actions"><img src="assets/logos/azure.svg" alt="Azure"></span>
-        </li>
-        <li>
-          <h3>homelab</h3>
-          <p>A Proxmox cluster at home running Docker workloads, Proxmox Backup Server and Grafana. I try new tools here before I use them at work.</p>
-          <span class="tech"><img src="assets/logos/proxmox.svg" alt="Proxmox"><img src="assets/logos/docker.svg" alt="Docker"><img src="assets/logos/grafana.svg" alt="Grafana"></span>
-        </li>
-        <li>
-          <h3>ops-automation</h3>
-          <p>PowerShell and Python scripts for user onboarding and offboarding in Entra ID and Active Directory, reports and health checks. Lately also some experiments with LLMs for ticket triage.</p>
-          <span class="tech"><img src="assets/logos/powershell.svg" alt="PowerShell"><img src="assets/logos/python.svg" alt="Python"><img src="assets/logos/microsoft.svg" alt="Microsoft"></span>
-        </li>
-      </ol>
+
+      <article class="project featured reveal">
+        <div class="p-head">
+          <h3>golden-images</h3>
+          <span class="tech"><img src="assets/logos/terraform.svg" alt="Terraform"><img src="assets/logos/ansible.svg" alt="Ansible" class="mono"><img src="assets/logos/githubactions.svg" alt="GitHub Actions"><img src="assets/logos/azure.svg" alt="Azure"></span>
+        </div>
+        <p class="p-sum">Hardened, CIS-checked base images for Windows and Linux, built, tested and published by GitHub Actions.</p>
+        <ol class="flow" aria-label="Image pipeline">
+          <li>terraform <small>build VM</small></li>
+          <li>CIS hardening</li>
+          <li>ansible <small>agents</small></li>
+          <li>tests <small>+ CIS scan</small></li>
+          <li>compute gallery</li>
+        </ol>
+        <p class="os"><span>Windows Server 2019 · 2022 · 2025</span><span>Debian · Rocky Linux · RHEL · Ubuntu</span></p>
+        <dl class="pcr">
+          <div><dt>why</dt><dd>Every new VM should start secure and consistent, whatever the operating system, instead of being hardened and configured after it is already running.</dd></div>
+          <div><dt>built</dt><dd>One workflow per OS: Terraform provisions a build VM, the CIS baseline is applied, Ansible installs the required agents, the image is tested and scanned for CIS compliance, then versioned into Azure Compute Gallery.</dd></div>
+          <div><dt>result</dt><dd>Seven hardened images maintained as code. New machines come up compliant and fully configured on day one.</dd></div>
+        </dl>
+      </article>
+
+      <div class="project-grid">
+        <article class="project reveal">
+          <div class="p-head">
+            <h3>vm-hardening</h3>
+            <span class="tech"><img src="assets/logos/githubactions.svg" alt="GitHub Actions"><img src="assets/logos/ansible.svg" alt="Ansible" class="mono"><img src="assets/logos/azure.svg" alt="Azure"></span>
+          </div>
+          <p>A workflow that applies the same CIS baseline to Azure VMs that are already running, so older machines catch up with the golden images without being rebuilt.</p>
+          <p class="result"><b>result</b> one hardening standard for new and existing servers</p>
+        </article>
+        <article class="project reveal">
+          <div class="p-head">
+            <h3>fleet-patching</h3>
+            <span class="tech"><img src="assets/logos/github.svg" alt="GitHub" class="mono"><img src="assets/logos/ansible.svg" alt="Ansible" class="mono"><img src="assets/logos/windows.svg" alt="Windows"></span>
+          </div>
+          <p>A self-hosted GitHub runner hands the job to Ansible, which installs MSI packages or patches middleware such as 7-Zip on many hosts in parallel.</p>
+          <p class="result"><b>result</b> an estate-wide update is one workflow run, not host-by-host remote sessions</p>
+        </article>
+        <article class="project reveal">
+          <div class="p-head">
+            <h3>monitoring-platform</h3>
+            <span class="tech"><img src="assets/logos/zabbix.svg" alt="Zabbix"><img src="assets/logos/grafana.svg" alt="Grafana"></span>
+          </div>
+          <p>Centralised monitoring and alerting with Zabbix and Grafana for on-prem infrastructure across several locations: virtual machines, VMware hosts, SQL Server clusters, Veeam backups, switches, access points and UPS units.</p>
+          <p class="result"><b>result</b> problems detected in seconds instead of hours, usually before users noticed</p>
+        </article>
+        <article class="project reveal">
+          <div class="p-head">
+            <h3>homelab</h3>
+            <span class="tech"><img src="assets/logos/proxmox.svg" alt="Proxmox"><img src="assets/logos/docker.svg" alt="Docker"><img src="assets/logos/grafana.svg" alt="Grafana"></span>
+          </div>
+          <p>A Proxmox cluster at home running Docker workloads, Proxmox Backup Server and Grafana. New tools get tested here long before they reach work.</p>
+          <p class="result"><b>result</b> a place to break things safely</p>
+        </article>
+      </div>
     </section>
 
     <section id="stack" class="wrap section">
@@ -261,7 +332,7 @@
             <li><img src="assets/logos/kubernetes.svg" alt="">Kubernetes</li>
             <li><img src="assets/logos/docker.svg" alt="">Docker</li>
             <li><img src="assets/logos/proxmox.svg" alt="">Proxmox</li>
-            <li><img src="assets/logos/vmware.svg" alt="" class="wide">VMware</li>
+            <li class="noicon">VMware vSphere</li>
             <li><img src="assets/logos/linux.svg" alt="" class="mono">Linux</li>
           </ul>
         </div>
@@ -272,7 +343,7 @@
             <li><img src="assets/logos/zabbix.svg" alt="">Zabbix</li>
             <li><img src="assets/logos/datadog.svg" alt="">Datadog</li>
             <li><img src="assets/logos/fortinet.svg" alt="">Fortinet</li>
-            <li><img src="assets/logos/veeam.svg" alt="" class="wide">Veeam</li>
+            <li class="noicon">Veeam Backup &amp; Replication</li>
           </ul>
         </div>
       </div>
@@ -301,6 +372,7 @@
         <span>linkedin.com/in/krystian-niwa</span><i aria-hidden="true">↗</i>
       </a>
       <p class="cta">
+        <a href="https://github.com/zxkrizz" target="_blank" rel="noopener">↗ github.com/zxkrizz</a>
         <button type="button" data-open-term>&gt;_ or open a shell</button>
       </p>
     </section>
@@ -310,7 +382,6 @@
     <span>© 2026 Krystian Niwa</span>
     <span>press <kbd>`</kbd> for a shell</span>
   </footer>
-
 
   <div id="term" class="term" aria-hidden="true" role="dialog" aria-label="Interactive shell">
     <div class="term-bar"><span>visitor@krystian-niwa</span></div>

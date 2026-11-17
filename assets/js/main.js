@@ -5,6 +5,7 @@ import { Sim, ZONES, setPalette, clamp, lerp, ease } from './sim.js';
 import { Terminal } from './terminal.js';
 import { mountPipeline } from './pipeline.js';
 import { asciiPortrait } from './ascii.js';
+import { mountThemeToggle, onThemeChange } from './theme.js';
 import { mountGrowth } from './growth.js';
 
 // Hero name: split into letters so CSS can stagger them in on load.
@@ -14,6 +15,15 @@ h1.innerHTML = h1.textContent.split(' ').map((word, wi) =>
   `<span class="word" aria-hidden="true">${[...word].map((ch, ci) => `<span class="ch" style="--i:${wi * 8 + ci}">${ch}</span>`).join('')}</span>`).join(' ');
 
 asciiPortrait(document.querySelector('.portrait img'), document.querySelector('.portrait .ascii'));
+
+// Portrait: hover shows the photo on desktop; tap / click / Enter toggles it everywhere (touch has no hover).
+const portrait = document.querySelector('.portrait');
+const togglePhoto = () => {
+  const on = portrait.classList.toggle('show-photo');
+  portrait.setAttribute('aria-pressed', String(on));
+};
+portrait.addEventListener('click', togglePhoto);
+portrait.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); togglePhoto(); } });
 mountPipeline(document.getElementById('gha'));
 mountGrowth(document.querySelector('[data-contrib]'), document.querySelector('[data-contrib-axis]'));
 
@@ -34,7 +44,8 @@ function readPalette() {
   setPalette(Object.fromEntries(keys.map((k) => [k, cs.getPropertyValue(`--sim-${k}`).trim()])));
 }
 readPalette();
-matchMedia('(prefers-color-scheme: dark)').addEventListener('change', readPalette);
+onThemeChange(readPalette);
+mountThemeToggle(document.querySelector('[data-theme-toggle]'));
 
 // ---------- live readouts ----------
 function onStats(s) {

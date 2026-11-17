@@ -21,13 +21,21 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Syntax check
-        run: for f in assets/js/*.js scripts/*.mjs; do node --check "$f"; done
+        run: for f in assets/js/*.js scripts/*.mjs scripts/og/*.mjs; do node --check "$f"; done
+
+      - id: site
+        uses: actions/configure-pages@v5
 
       - name: Assemble site
+        env:
+          SITE_URL: ${{ steps.site.outputs.base_url }}
         run: |
           mkdir -p _site
           cp index.html _site/
           cp -r assets _site/
+          # absolute URLs for canonical, Open Graph and JSON-LD (works for any repo name or custom domain)
+          sed -i "s#__SITE_URL__#${SITE_URL%/}#g" _site/index.html
+          ! grep -q "__SITE_URL__" _site/index.html
 
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -1,0 +1,30 @@
+<!doctype html>
+<!-- Social preview template (1200x627). Render with: node scripts/og/render.mjs -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    html, body { margin: 0; width: 1200px; height: 627px; overflow: hidden; }
+    body {
+      background: #0b0b0c; color: #f2f2f0; font-family: "Geist", system-ui, sans-serif;
+      display: grid; grid-template-columns: 1fr 360px; gap: 64px; align-items: center; padding: 0 80px; box-sizing: border-box;
+    }
+    .cmd { font: 400 24px "Geist Mono", monospace; color: #8f8f8a; margin: 0 0 18px; }
+    .cmd b { color: #3fb950; font-weight: 400; }
+    h1 { font-size: 104px; line-height: 0.92; letter-spacing: -0.055em; font-weight: 500; margin: 0; }
+    .role { font: 500 30px "Geist Mono", monospace; margin: 30px 0 0; }
+    .stack { font: 400 22px "Geist Mono", monospace; color: #4493f8; margin: 18px 0 0; }
+    img { width: 360px; height: 450px; object-fit: cover; object-position: 50% 28%; border-radius: 20px; display: block; }
+  </style>
+</head>
+<body>
+  <div>
+    <p class="cmd"><b>$</b> whoami</p>
+    <h1>Krystian<br>Niwa</h1>
+    <p class="role">Platform &amp; DevOps Engineer</p>
+    <p class="stack">Azure · Terraform · GitHub Actions · Ansible</p>
+  </div>
+  <img src="../../assets/img/krystian.webp" alt="">
+</body>
+</html>

@@ -1,12 +1,15 @@
-# krystian-niwa / platform
+# krystian-niwa / portfolio
 
-Portfolio of a Platform & DevOps Engineer. Flat, typography-led layout: a neofetch-style hero with photo,
-a marquee of real tech logos, a live GitHub Actions run, and a platform simulation in a sticky card that
-follows the "How I work" steps. Light and dark themes follow the system setting.
+Personal site of Krystian Niwa, Platform & DevOps Engineer. Static, zero dependencies, no build step.
 
-- Zero dependencies, no build step — `index.html` + `assets/`.
-- Click a pod in the cluster to kill it; the reconciler heals it and the alert pages on-call.
-- Press `` ` `` (or Ctrl/Cmd+K) for a shell: `help`, `kubectl get pods`, `kubectl delete pod --all`, `terraform plan`, `cat profile.yaml`…
+**Sections:** neofetch-style hero (ASCII portrait generated from the photo), growth story with an
+illustrative responsibility heatmap, a simulated GitHub Actions delivery run (clickable jobs and step
+logs), a live platform simulation that follows the "approach" steps, projects, stack, certifications
+and contact. Light/dark theme follows the system and can be switched manually.
+
+- Click a pod in the simulation to kill it; it gets replaced and the alert pages on-call.
+- Press `` ` `` (or Ctrl/Cmd+K) for a shell: `help`, `kubectl get pods`, `kubectl delete pod --all`,
+  `kubectl get certs`, `cat profile.yaml`, `contact`.
 
 ## Run locally
 
@@ -14,21 +17,27 @@ follows the "How I work" steps. Light and dark themes follow the system setting.
 node scripts/dev-server.mjs
 ```
 
-Open http://localhost:5173 (ES modules need http, `file://` will not work).
+Open http://localhost:5173 (ES modules need http; `file://` will not work).
 
 ## Structure
 
-| file | what |
+| path | what |
 | --- | --- |
-| `index.html` | all page copy (crawlable without JS) |
-| `assets/js/sim.js` | the simulation + canvas renderer |
-| `assets/js/main.js` | page wiring, scroll → simulation camera |
-| `assets/js/pipeline.js` | the animated GitHub Actions run |
-| `assets/logos/` | tech logos (devicon / simple-icons, MIT/CC0) |
-| `assets/js/terminal.js` | the drop-down shell |
-| `assets/js/data.js` | shared content (commits, jobs, layers, certs) |
+| `index.html` | all page copy and meta (crawlable without JS) |
+| `assets/css/style.css` | styles, light and dark themes (`[data-theme]`) |
+| `assets/js/main.js` | page wiring, scroll-driven simulation camera, portrait toggle |
+| `assets/js/sim.js` | platform simulation and canvas renderer |
+| `assets/js/pipeline.js` | the GitHub Actions run |
+| `assets/js/growth.js` | the responsibility heatmap |
+| `assets/js/ascii.js` | ASCII portrait from the photo |
+| `assets/js/theme.js` | theme toggle |
+| `assets/js/terminal.js` | the shell easter egg |
+| `assets/logos/` | tech logos (devicon / simple-icons) |
+| `scripts/og/` | social preview template; `node scripts/og/render.mjs` regenerates `assets/img/og.png` |
 | `.github/workflows/deploy.yml` | deploys to GitHub Pages on push to `main` |
 
 ## Deploy
 
-Push to GitHub, then **Settings → Pages → Source: GitHub Actions**.
+Push to GitHub, then **Settings → Pages → Source: GitHub Actions**. The workflow replaces
+`__SITE_URL__` in `index.html` with the Pages URL, so canonical, Open Graph and JSON-LD URLs are
+absolute on the live site.
