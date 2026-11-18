@@ -4,7 +4,7 @@ Personal site of Krystian Niwa, Platform & DevOps Engineer. Static, zero depende
 
 **Sections:** neofetch-style hero (ASCII portrait generated from the photo), growth story with an
 illustrative responsibility heatmap, a simulated GitHub Actions delivery run (clickable jobs and step
-logs), a live platform simulation that follows the "approach" steps, projects, stack, certifications
+logs), a live platform simulation that follows the "approach" steps, projects, certifications
 and contact. Light/dark theme follows the system and can be switched manually.
 
 - Click a pod in the simulation to kill it; it gets replaced and the alert pages on-call.

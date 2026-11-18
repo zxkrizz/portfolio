@@ -302,7 +302,7 @@ h1 {
 
 /* scroll-driven reveals (progressive enhancement) */
 @supports (animation-timeline: view()) {
-  .reveal, .section-head, .stack > div, .gha, .certs {
+  .reveal, .section-head, .gha, .certs {
     animation: rise linear both; animation-timeline: view(); animation-range: entry 5% entry 45%;
   }
   @keyframes rise { from { opacity: 0; transform: translateY(40px); } }
@@ -365,13 +365,6 @@ h1 {
 .tech { flex: none; }
 .tech img { width: 22px; height: 22px; object-fit: contain; }
 
-/* ---------- stack: logo columns, no boxes ---------- */
-.stack { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 32px; }
-.stack h3 { font: 500 14px var(--mono); color: var(--muted); margin: 0 0 18px; }
-.stack ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
-.stack li { display: flex; align-items: center; gap: 12px; font-size: 16px; font-weight: 500; }
-.stack li img { width: 24px; height: 24px; object-fit: contain; flex: none; }
-.stack li.noicon { padding-left: 36px; }
 .certs {
   margin-top: 64px; padding-top: 28px; border-top: 1px solid var(--line);
 }
@@ -448,7 +441,6 @@ h1 {
   .gha-side p { grid-row: 1; }
   .gha-side ul { grid-row: 2; margin: 0; }
   .now-list { grid-template-columns: minmax(0, 1fr); }
-  .stack { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 1040px) {
   .pcr { grid-template-columns: minmax(0, 1fr); }
@@ -491,7 +483,6 @@ h1 {
   .fetch-grid { grid-template-columns: minmax(0, 1fr); gap: 20px; }
   .ascii { font-size: 1.95vw; min-width: 0; min-height: 0; }
   .info { font-size: 12.5px; }
-  .stack { grid-template-columns: minmax(0, 1fr); }
   .gha-side { grid-template-columns: minmax(0, 1fr); }
   .gha-side p, .gha-side ul { grid-row: auto; }
   .gha-side ul { margin-bottom: 16px; }
