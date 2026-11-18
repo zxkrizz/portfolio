@@ -1,3 +1,7 @@
 node_modules/
 .DS_Store
 Thumbs.db
+
+# local social media pack and its generators (not part of the site)
+/media/
+/scripts/media/
