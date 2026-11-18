@@ -7,7 +7,7 @@ import { isDark, onThemeChange } from './theme.js';
 
 const RAMP = " .'`^\",:;Il!i><~+_-?][}{1)(|/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$";
 
-export function asciiPortrait(img, pre, { cols = 72, crop = [0.22, 0.05, 0.58, 0.8], cell = 0.6, tol = 70, step = 16 } = {}) {
+export function asciiPortrait(img, pre, { cols = 72, crop = [0.22, 0.05, 0.58, 0.8], cell = 0.6, tol = 70, step = 16, gamma = 1 } = {}) {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   let timer = 0;
 
@@ -71,7 +71,8 @@ export function asciiPortrait(img, pre, { cols = 72, crop = [0.22, 0.05, 0.58, 0
       for (let x = 0; x < cols; x++) {
         const i = y * cols + x;
         if (bg[i]) { s += ' '; continue; }
-        const v = rank(lum[i]);
+        // gamma > 1 adds ink to bright skin, so highlights do not wash out half the face
+        const v = Math.pow(rank(lum[i]), dark ? 1 / gamma : gamma);
         const d = dark ? v : 1 - v; // ink density: light ink on dark, dark ink on light
         s += RAMP[Math.max(1, Math.round(d * (RAMP.length - 1)))];
       }
